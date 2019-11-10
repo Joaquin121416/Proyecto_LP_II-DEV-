@@ -122,7 +122,7 @@ public class LoginServlet extends GenericoMB {
 							session.setAttribute("usuario", oUsuario);
 							page = "MenuPrincipal.jsp";
 						} else {
-							super.alerta("Usuario y/o clave incorrecto");
+							
 							System.out.println(page);
 						}
 					} else {

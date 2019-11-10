@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.sistema.comidas.bean.GenericoBean;
 import com.sistema.comidas.presentacion.GenericoMB;
 
 public class MySQLConexion extends GenericoMB {
@@ -24,8 +23,10 @@ public class MySQLConexion extends GenericoMB {
 			con = DriverManager.getConnection(url, usr, psw);// con este método se establece la conexión con el servidor
 		} catch (ClassNotFoundException e) {
 			System.out.println("Error >> Driver no Instalado!!");
+			e.printStackTrace();
 		} catch (SQLException e) {
 			System.out.println("Error >> de conexión con la BD");
+			e.printStackTrace();
 		}
 		return con;
 	}

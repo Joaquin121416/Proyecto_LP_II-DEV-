@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>2.0</jspversion>
+	<shortname></shortname>
+	<uri>LibTag</uri><!-- Alias de la libreria de Tag -->
+
+	<!-- Se registran las etiquetas -->
+	<tag>
+		<name>tagCodigos</name>
+		<tagclass>com.sistema.comidas.tags.CodigosTag</tagclass>
+		<bodycontent>false</bodycontent>
+		<attribute>
+			<name>tabla</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>campo</name>
+			<required>true</required>
+		</attribute>
+		
+	</tag>
+</taglib>
+
+
+
+
+
