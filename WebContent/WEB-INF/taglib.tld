@@ -23,6 +23,12 @@
 		</attribute>
 		
 	</tag>
+	
+	<tag>
+	<name>tagCodigoCategoriaSelecciona</name>
+	<tagclass>com.sistema.comidas.util.Wrapper</tagclass>
+	</tag>
+	
 </taglib>
 
 

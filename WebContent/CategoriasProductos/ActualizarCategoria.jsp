@@ -19,7 +19,7 @@
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<strong>Agregar Categoria</strong>
+									<strong>Actualizar Categoria</strong>
 								</div>
 								<form action="/LP_2_Sistema_Venta_3.0/CategoriaServlet"
 									enctype="multipart/form-data">
@@ -31,8 +31,8 @@
 												<label class=" form-control-label">Codigo :</label>
 											</div>
 											<div class="col-12 col-md-9">
-												<tag:tagCodigos tabla="TB_CATEGORIA_PRODUCTO"
-													campo="CAT_PRO_ID" ></tag:tagCodigos>
+												<input type="text" id="disabled-input" name="cod"
+													 class="form-control" disabled="" value="${cod}">
 											</div>
 										</div>
 										<div class="row form-group">
@@ -42,7 +42,7 @@
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="nom"
-													placeholder="obligatorio" class="form-control">
+													 class="form-control" value="${nom}">
 											</div>
 										</div>
 										<div class="row form-group">
@@ -52,7 +52,7 @@
 											</div>
 											<div class="col-12 col-md-9">
 												<textarea name="des" id="textarea-input" rows="9"
-													placeholder="obligatorio" class="form-control"></textarea>
+													 class="form-control" >${des}</textarea>
 											</div>
 										</div>
 									</div>

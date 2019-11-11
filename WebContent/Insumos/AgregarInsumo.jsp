@@ -19,7 +19,7 @@
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<strong>Agregar Categoria</strong>
+									<strong>Agregar Insumos</strong>
 								</div>
 								<form action="/LP_2_Sistema_Venta_3.0/CategoriaServlet"
 									enctype="multipart/form-data">
@@ -31,14 +31,13 @@
 												<label class=" form-control-label">Codigo :</label>
 											</div>
 											<div class="col-12 col-md-9">
-												<tag:tagCodigos tabla="TB_CATEGORIA_PRODUCTO"
-													campo="CAT_PRO_ID" ></tag:tagCodigos>
+												<tag:tagCodigos tabla="TB_INSUMO" campo="INS_ID"></tag:tagCodigos>
 											</div>
 										</div>
 										<div class="row form-group">
 											<div class="col col-md-3">
 												<label for="text-input" class=" form-control-label">Nombre
-													: </label>
+													 : </label>
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="nom"
@@ -48,11 +47,22 @@
 										<div class="row form-group">
 											<div class="col col-md-3">
 												<label for="textarea-input" class=" form-control-label">Descripcion
-													:</label>
+													 :</label>
 											</div>
 											<div class="col-12 col-md-9">
 												<textarea name="des" id="textarea-input" rows="9"
 													placeholder="obligatorio" class="form-control"></textarea>
+											</div>
+
+										</div>
+										<div class="row form-group">
+											<div class="col col-md-3">
+												<label for="text-input" class=" form-control-label">Precio
+													: </label>
+											</div>
+											<div class="col-12 col-md-9">
+												<input type="text" id="text-input" name="pre"
+													placeholder="ingrese Precio S/." class="form-control">
 											</div>
 										</div>
 									</div>
@@ -63,16 +73,15 @@
 										<button type="reset" class="btn btn-danger btn-sm">
 											<i class="fa fa-ban"></i> Cancelar
 										</button>
-										<br>
-										<br>
+										<br> <br>
 										<p>
-										<%
-											Object mensaje = pageContext.findAttribute("mensaje");
-											if (mensaje != null) {
-												out.print(mensaje.toString());
-												
-											}
-										%>
+											<%
+												Object mensaje = pageContext.findAttribute("mensaje");
+												if (mensaje != null) {
+													out.print(mensaje.toString());
+
+												}
+											%>
 										</p>
 									</div>
 								</form>

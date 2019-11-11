@@ -3,6 +3,8 @@
 <%@ taglib uri="LibTag" prefix="tag"%>
 <%@page import="java.util.List"%>
 <%@page import="com.sistema.comidas.bean.CategoriaProducto"%>
+<%@page import="com.sistema.comidas.util.Wrapper"  %>
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <div id="right-panel" class="right-panel">
 	<jsp:include page="/Cabecera.jsp" />
 	<!-- Content -->
@@ -23,37 +25,21 @@
 									<strong>Lista Categoria</strong>
 								</div>
 								<form action="/LP_2_Sistema_Venta_3.0/CategoriaServlet"
-									enctype="multipart/form-data">
+										enctype="multipart/form-data">
 									<div class="card-body">
-										<table class="table">
-											<thead>
-												<tr>
-													<th scope="col">Codigo</th>
-													<th scope="col">Nombre</th>
-													<th scope="col">Descripcion</th>
-
-												</tr>
-											</thead>
-											<tbody>
-												<%
-													List<CategoriaProducto> data = (List<CategoriaProducto>) request.getAttribute("lista");
-													if (data != null) {
-														for (CategoriaProducto c : data) {
-												%>
-												<tr>
-													<td><%=c.getCat_pro_id()%></td>
-													<td><%=c.getCat_pro_nom()%></td>
-													<td><%=c.getCat_pro_des()%></td>
-
-												</tr>
-												<%
-													}
-													}
-												%>
-											</tbody>
-										</table>
+									
+									
+									<display:table  class="table" name="${ lista }" pagesize="10" export="true" decorator="com.sistema.comidas.util.Wrapper">
+										<display:column title="Codigo" property="cat_pro_id"></display:column>
+            							<display:column title="Nombre" property="cat_pro_nom"></display:column>
+            							<display:column title="Descripcion" property="cat_pro_des"></display:column>
+            							<display:column title="Actualizar" property="seleccionaCategoria"></display:column>
+            							<display:column title="Eliminar" property="eliminaCategoria" ></display:column>
+									</display:table>
+										
 									</div>
-
+								
+							
 									<div class="card-footer">
 										<button class="btn btn-primary btn-sm" name="opc" value="lis">
 											<i class="fa fa-dot-circle-o"></i> Listar

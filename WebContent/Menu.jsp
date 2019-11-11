@@ -31,7 +31,7 @@
 					<li class="menu-item-has-children dropdown"><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false"> <i
-							class="menu-icon fa fa-male"></i>Mantenimiento
+							class="menu-icon fa fa-male"></i>Clientes
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="menu-icon fa fa-map-o"></i><a href=".jsp">Lista
@@ -73,7 +73,20 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="menu-icon fa fa-th"></i><a
-								href="forms-basic.html">Basic Form</a></li>
+								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarInsumoMenu.jsp">Basic
+									Form</a></li>
+							<li><i class="menu-icon fa fa-th"></i><a
+								href="forms-advanced.html">Advanced Form</a></li>
+						</ul></li>
+					<li class="menu-item-has-children dropdown"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> <i
+							class="menu-icon fa fa-archive"></i>Insumo
+					</a>
+						<ul class="sub-menu children dropdown-menu">
+							<li><i class="menu-icon fa fa-th"></i><a
+								href="/LP_2_Sistema_Venta_3.0/Insumos/AgregarInsumoMenu.jsp">Agregar
+									Insumo </a></li>
 							<li><i class="menu-icon fa fa-th"></i><a
 								href="forms-advanced.html">Advanced Form</a></li>
 						</ul></li>
@@ -85,7 +98,7 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="menu-icon fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/CategoriasProductos/ListaCategoriaMenu.jsp">Lista
+								href="/LP_2_Sistema_Venta_3.0/CategoriaServlet?opc=lis">Lista
 									de Categorias</a></li>
 							<li><i class="menu-icon fa fa-table"></i><a
 								href="/LP_2_Sistema_Venta_3.0/CategoriasProductos/AgregarCategoriaMenu.jsp">Añadir

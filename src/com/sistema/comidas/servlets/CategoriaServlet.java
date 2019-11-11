@@ -13,6 +13,7 @@ import com.sistema.comidas.bean.CategoriaProducto;
 import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.GenericoDAO;
 import com.sistema.comidas.dao.factory.Factory;
+import com.sistema.comidas.util.Wrapper;
 
 /**
  * Servlet implementation class CategoriaServlet
@@ -30,12 +31,12 @@ public class CategoriaServlet extends HttpServlet {
 			listarCategoria(request,response);
 		} else if (opc.equals("agr")) {
 			agregarCategoria(request,response);
-		} else if (opc == "act") {
+		} else if (opc.equals("act1")) {
+			actualizar1(request,response);
+		} else if (opc.equals("eli")) {
+			eliminar(request,response);
+		} else if (opc.equals("act2")) {
 			
-		} else if (opc == "eli") {
-
-		} else if (opc == "ing") {
-
 		}
 
 	
@@ -99,8 +100,44 @@ public class CategoriaServlet extends HttpServlet {
 		}
 		
 		// salidas
+		Wrapper w = new Wrapper();
 		request.setAttribute("lista", lis);
 		request.setAttribute("mensaje", mensaje);
+		request.getRequestDispatcher(url).forward(request, response);
+	
+	}
+	
+	
+	protected void actualizar1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id = String.valueOf(request.getParameter("codigo"));
+		int cod =Integer.parseInt(id);
+		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
+		CategoriaDAO dao =bd.getCategoriaDAO();
+		CategoriaProducto cat;
+		cat=dao.listarByID(cod);
+		
+		String url="CategoriasProductos/ActualizarCategoriaMenu.jsp";
+		// salidas
+		request.setAttribute("cod", cat.getCat_pro_id());
+		request.setAttribute("nom", cat.getCat_pro_nom());
+		request.setAttribute("des", cat.getCat_pro_des());
+		request.getRequestDispatcher(url).forward(request, response);
+	
+	}
+	
+	protected void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id = String.valueOf(request.getParameter("codigo"));
+		int cod =Integer.parseInt(id);
+		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
+		CategoriaDAO dao =bd.getCategoriaDAO();
+		CategoriaProducto cat = new CategoriaProducto();
+		cat.setCat_pro_id(cod);
+		int res=dao.eliminarCategoria(cat);
+		
+		String url="CategoriasProductos/ListaCategoriaMenu.jsp";
+		// salidas
 		request.getRequestDispatcher(url).forward(request, response);
 	
 	}

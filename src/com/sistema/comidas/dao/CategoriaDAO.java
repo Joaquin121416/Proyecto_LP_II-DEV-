@@ -13,5 +13,7 @@ public interface CategoriaDAO {
 	public int modificarCategoria(CategoriaProducto cat);
 
 	public int eliminarCategoria(CategoriaProducto cat);
+	
+	public CategoriaProducto listarByID(int id);
 
 }
