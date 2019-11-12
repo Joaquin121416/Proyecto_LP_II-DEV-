@@ -73,8 +73,8 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="menu-icon fa fa-th"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarInsumoMenu.jsp">Basic
-									Form</a></li>
+								href="/LP_2_Sistema_Venta_3.0/Proveedor/AgregarProveedorMenu.jsp">
+									Agregar</a></li>
 							<li><i class="menu-icon fa fa-th"></i><a
 								href="forms-advanced.html">Advanced Form</a></li>
 						</ul></li>

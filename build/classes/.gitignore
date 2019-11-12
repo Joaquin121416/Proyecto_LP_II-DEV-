@@ -1,2 +1,5 @@
 /com/
 /.gitignore
+/baseDeDatos
+/config.properties
+/tags.properties
