@@ -40,10 +40,12 @@
 												<label for="text-input" class=" form-control-label">Nombre
 													: </label>
 											</div>
+											
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="nom"
 													placeholder="obligatorio" class="form-control">
 											</div>
+											<div id="mensaje1" class="errores">Ingrese un Nombre entre 5 y 70 caracteres</div>
 										</div>
 										<div class="row form-group">
 											<div class="col col-md-3">
@@ -57,7 +59,7 @@
 										</div>
 									</div>
 									<div class="card-footer">
-										<button class="btn btn-primary btn-sm" name="opc" value="agr">
+										<button class="btn btn-primary btn-sm" id="bEnviar" name="opc" value="agr">
 											<i class="fa fa-dot-circle-o"></i> Agregar
 										</button>
 										<button type="reset" class="btn btn-danger btn-sm">

@@ -100,7 +100,6 @@ public class CategoriaServlet extends HttpServlet {
 		}
 		
 		// salidas
-		Wrapper w = new Wrapper();
 		request.setAttribute("lista", lis);
 		request.setAttribute("mensaje", mensaje);
 		request.getRequestDispatcher(url).forward(request, response);

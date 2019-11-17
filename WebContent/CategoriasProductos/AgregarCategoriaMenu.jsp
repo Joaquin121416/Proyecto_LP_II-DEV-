@@ -47,6 +47,21 @@
 	rel="stylesheet" />
 
 <style>
+.errores{
+-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+-moz-bos-shadow:  0 0 10px rgba(0,0,0,0.3);
+-o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+background : red;
+box-shadow : 0 0 10px rgba(0,0,0,0.3);
+color:#fff;
+display:none;
+font-size:14px;
+margin-top:-80px;
+margin-left:340px;
+padding:10px;
+position:absolute;
+}
+
 #weatherWidget .currentDesc {
 	color: #ffffff !important;
 }
@@ -95,6 +110,17 @@
 	<jsp:include page="AgregarCategoria.jsp" />
 
 	<!-- Scripts -->
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$("bEnviar").click(function(){
+			
+			$("#mensaje1").fadeIn();
+			return false;
+		});
+		
+	}
+	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 	<script
