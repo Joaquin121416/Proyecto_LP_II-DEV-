@@ -118,8 +118,8 @@ position:absolute;
 			$("#mensaje1").fadeIn();
 			return false;
 		});
-		
 	}
+	
 	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
