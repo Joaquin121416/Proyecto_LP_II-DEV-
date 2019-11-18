@@ -8,10 +8,6 @@ public class CategoriaProducto {
 
 	private String cat_pro_des;
 
-	public CategoriaProducto() {
-		super();
-	}
-
 	private String cat_pro_est;
 
 

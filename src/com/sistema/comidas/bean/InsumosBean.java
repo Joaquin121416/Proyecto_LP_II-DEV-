@@ -7,10 +7,10 @@ public class InsumosBean {
 	public void setINS_ID(int iNS_ID) {
 		INS_ID = iNS_ID;
 	}
-	public int getINS_DES() {
+	public String getINS_DES() {
 		return INS_DES;
 	}
-	public void setINS_DES(int iNS_DES) {
+	public void setINS_DES(String iNS_DES) {
 		INS_DES = iNS_DES;
 	}
 	public String getINS_NOM() {
@@ -30,8 +30,8 @@ public class InsumosBean {
 		return "InsumosBean [INS_ID=" + INS_ID + ", INS_DES=" + INS_DES + ", INS_NOM=" + INS_NOM + ", INS_PRE="
 				+ INS_PRE + "]";
 	}
-   int INS_ID ,INS_DES;
-   String INS_NOM;
+	int INS_ID ;
+   String INS_NOM,INS_DES;
    double INS_PRE;
 
 
