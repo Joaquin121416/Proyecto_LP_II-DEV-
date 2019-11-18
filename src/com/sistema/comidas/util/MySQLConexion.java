@@ -8,6 +8,10 @@ import java.sql.Statement;
 import com.sistema.comidas.presentacion.GenericoMB;
 
 public class MySQLConexion extends GenericoMB {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String dri = super.getStringProp("jdbc.driverClassName");
 	String url = super.getStringProp("jdbc.url");
 	String usr = super.getStringProp("jdbc.username");

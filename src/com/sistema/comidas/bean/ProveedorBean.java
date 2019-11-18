@@ -2,12 +2,12 @@ package com.sistema.comidas.bean;
 
 public class ProveedorBean {
 	
-	private int PROV_ID, AUD_IDUSUARIO,AUD_FECHA,PROV_COD_RUC,PROV_NUM_TEL,PROV_ESTADO,PROV_EST,AUD_TIPO;
+	private int PROV_ID, AUD_IDUSUARIO,AUD_FECHA,PROV_COD_RUC,PROV_NUM_TEL,PROV_ESTADO,AUD_TIPO;
 	@Override
 	public String toString() {
 		return "ProveedorBean [PROV_ID=" + PROV_ID + ", AUD_IDUSUARIO=" + AUD_IDUSUARIO + ", AUD_FECHA=" + AUD_FECHA
 				+ ", PROV_COD_RUC=" + PROV_COD_RUC + ", PROV_NUM_TEL=" + PROV_NUM_TEL + ", PROV_ESTADO=" + PROV_ESTADO
-				+ ", PROV_EST=" + PROV_EST + ", AUD_TIPO=" + AUD_TIPO + ", PROV_NOM=" + PROV_NOM + ", AUD_IP=" + AUD_IP
+				+ ", PROV_EST="  + ", AUD_TIPO=" + AUD_TIPO + ", PROV_NOM=" + PROV_NOM + ", AUD_IP=" + AUD_IP
 				+ ", AUD_SESION=" + AUD_SESION + "]";
 	}
 	private String PROV_NOM,AUD_IP,AUD_SESION;
@@ -53,16 +53,10 @@ public class ProveedorBean {
 	public void setPROV_ESTADO(int pROV_ESTADO) {
 		PROV_ESTADO = pROV_ESTADO;
 	}
-	public int getPROV_EST() {
-		return PROV_EST;
-	}
-	public void setPROV_EST(int pROV_EST) {
-		PROV_EST = pROV_EST;
-	}
 	public int getAUD_TIPO() {
 		return AUD_TIPO;
 	}
-	public void setAUD_TIPO(int aUD_TIPO) {
+	public void setAUD_TIPO( int aUD_TIPO ) {
 		AUD_TIPO = aUD_TIPO;
 	}
 	public String getPROV_NOM() {

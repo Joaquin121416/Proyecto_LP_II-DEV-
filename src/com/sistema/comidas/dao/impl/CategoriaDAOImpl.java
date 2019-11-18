@@ -51,16 +51,16 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		PreparedStatement pstm = null;
 		try {
 			conn = new MySQLConexion().getConexion();
-			String sql = "select cat_pro_id,cat_pro_nom,cat_pro_des from TB_CATEGORIA_PRODUCTO where cat_pro_est;";
+			String sql = "select cat_pro_id,cat_pro_nom,cat_pro_des from TB_CATEGORIA_PRODUCTO where cat_pro_est=?;";
 
 			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, 1);
 			res = pstm.executeQuery();
 			while (res.next()) {
-				CategoriaProducto cat = new CategoriaProducto(res.getInt(1), res.getString(2), res.getString(3),"1");
+				CategoriaProducto cat = new CategoriaProducto(res.getInt(1), res.getString(2), res.getString(3), "1");
 				lista.add(cat);
 
 			}
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,7 +86,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		try {
 			conn = new MySQLConexion().getConexion();
 			String sql = "update TB_CATEGORIA_PRODUCTO set CAT_PRO_NOM =? ,CAT_PRO_DES=? where CAT_PRO_ID=?;";
-			
+
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, cat.getCat_pro_nom());
 			pstm.setString(2, cat.getCat_pro_des());
@@ -107,8 +107,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 			}
 		}
 		return res;
-	
-		
+
 	}
 
 	@Override
@@ -120,7 +119,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		try {
 			conn = new MySQLConexion().getConexion();
 			String sql = "update TB_CATEGORIA_PRODUCTO set cat_pro_est=0 where cat_pro_id=? ;";
-			
+
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, cat.getCat_pro_id());
 
@@ -150,15 +149,14 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		try {
 			conn = new MySQLConexion().getConexion();
 			String sql = "select cat_pro_id,cat_pro_nom,cat_pro_des from TB_CATEGORIA_PRODUCTO where cat_pro_est and cat_pro_id= ?;";
-			
+
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, id);
 			res = pstm.executeQuery();
 			while (res.next()) {
-				cat = new CategoriaProducto(res.getInt(1), res.getString(2), res.getString(3),"1");
+				cat = new CategoriaProducto(res.getInt(1), res.getString(2), res.getString(3), "1");
 				return cat;
 			}
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();

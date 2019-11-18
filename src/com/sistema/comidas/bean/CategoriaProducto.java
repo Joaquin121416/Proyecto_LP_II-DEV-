@@ -8,10 +8,6 @@ public class CategoriaProducto {
 
 	private String cat_pro_des;
 
-	public CategoriaProducto() {
-		super();
-	}
-
 	private String cat_pro_est;
 
 
@@ -21,6 +17,10 @@ public class CategoriaProducto {
 		this.cat_pro_nom = cat_pro_nom;
 		this.cat_pro_des = cat_pro_des;
 		this.cat_pro_est = cat_pro_est;
+	}
+
+	public CategoriaProducto() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getCat_pro_est() {

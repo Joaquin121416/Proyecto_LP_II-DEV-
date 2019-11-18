@@ -14,7 +14,6 @@ import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.GenericoDAO;
 import com.sistema.comidas.dao.factory.Factory;
 import com.sistema.comidas.util.Wrapper;
-
 /**
  * Servlet implementation class CategoriaServlet
  */
@@ -102,6 +101,7 @@ public class CategoriaServlet extends HttpServlet {
 
 	}
 
+
 	protected void actualizar1(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -164,5 +164,6 @@ public class CategoriaServlet extends HttpServlet {
 		request.getRequestDispatcher(url).forward(request, response);
 
 	}
+
 
 }

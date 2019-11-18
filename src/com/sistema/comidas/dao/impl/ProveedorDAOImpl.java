@@ -21,12 +21,21 @@ public class ProveedorDAOImpl implements ProveedorDAO {
 		PreparedStatement pstm = null;
 		try {
 			conn = new MySQLConexion().getConexion();
-			String sql = "select *from TB_PROVEEDOR where PROV_EST;";
+			String sql = "select * from TB_PROVEEDOR where PROV_EST;";
 
 			pstm = conn.prepareStatement(sql);
 			res = pstm.executeQuery();
 			while (res.next()) {
 				ProveedorBean pro = new ProveedorBean();
+				pro.setPROV_ID(res.getInt(1));
+				pro.setPROV_NOM(res.getString(2));
+				pro.setPROV_COD_RUC(res.getInt(3));
+				pro.setPROV_NUM_TEL(res.getInt(4));
+				pro.setPROV_ESTADO(res.getInt(5));
+				pro.setAUD_TIPO(res.getInt(6));
+				pro.setAUD_IDUSUARIO(res.getInt(7));
+				pro.setAUD_SESION(res.getString(8));
+				pro.setAUD_FECHA(res.getInt(9));
 				lista.add(pro);
 			}
 			
@@ -54,12 +63,15 @@ public class ProveedorDAOImpl implements ProveedorDAO {
 		PreparedStatement pstm = null;
 		try {
 			conn = new MySQLConexion().getConexion();
-			String sql = "INSERT INTO TB_CATEGORIA_PRODUCTO  VALUES (NULL,?,?,?,?,?,?,?,?,?,?);";
+			String sql = "INSERT INTO TB_PROVEEDOR  VALUES (NULL,?,?,?,1,1,?,1,?,?);";
 
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, pro.getPROV_NOM());
 			pstm.setInt(2,pro.getPROV_COD_RUC());
-
+			pstm.setInt(3,pro.getPROV_NUM_TEL());
+			pstm.setString(4,pro.getAUD_SESION());
+			pstm.setInt(5,pro.getAUD_FECHA());
+			pstm.setString(6,pro.getAUD_IP());
 			res = pstm.executeUpdate();
 
 		} catch (Exception e) {
