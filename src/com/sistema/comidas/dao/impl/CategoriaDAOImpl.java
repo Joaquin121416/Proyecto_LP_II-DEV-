@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sistema.comidas.bean.CategoriaProducto;
+import com.sistema.comidas.bean.CategoriaProductoBean;
 import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.util.MySQLConexion;
 
 public class CategoriaDAOImpl implements CategoriaDAO {
 
 	@Override
-	public int agregarCategoria(CategoriaProducto cat) {
+	public int agregarCategoria(CategoriaProductoBean cat) {
 
 		int res = 0;
 		Connection conn = null;
@@ -44,8 +44,8 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	}
 
 	@Override
-	public ArrayList<CategoriaProducto> listarCategoria() {
-		ArrayList<CategoriaProducto> lista = new ArrayList<CategoriaProducto>();
+	public ArrayList<CategoriaProductoBean> listarCategoria() {
+		ArrayList<CategoriaProductoBean> lista = new ArrayList<CategoriaProductoBean>();
 		ResultSet res = null;
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -57,7 +57,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 			pstm.setInt(1, 1);
 			res = pstm.executeQuery();
 			while (res.next()) {
-				CategoriaProducto cat = new CategoriaProducto(res.getInt(1), res.getString(2), res.getString(3), "1");
+				CategoriaProductoBean cat = new CategoriaProductoBean(res.getInt(1), res.getString(2), res.getString(3), "1");
 				lista.add(cat);
 
 			}
@@ -78,7 +78,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	}
 
 	@Override
-	public int modificarCategoria(CategoriaProducto cat) {
+	public int modificarCategoria(CategoriaProductoBean cat) {
 
 		int res = 0;
 		Connection conn = null;
@@ -111,7 +111,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	}
 
 	@Override
-	public int eliminarCategoria(CategoriaProducto cat) {
+	public int eliminarCategoria(CategoriaProductoBean cat) {
 
 		int res = 0;
 		Connection conn = null;
@@ -141,8 +141,8 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	}
 
 	@Override
-	public CategoriaProducto listarByID(int id) {
-		CategoriaProducto cat = new CategoriaProducto();
+	public CategoriaProductoBean listarByID(int id) {
+		CategoriaProductoBean cat = new CategoriaProductoBean();
 		ResultSet res = null;
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -154,7 +154,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 			pstm.setInt(1, id);
 			res = pstm.executeQuery();
 			while (res.next()) {
-				cat = new CategoriaProducto(res.getInt(1), res.getString(2), res.getString(3), "1");
+				cat = new CategoriaProductoBean(res.getInt(1), res.getString(2), res.getString(3), "1");
 				return cat;
 			}
 

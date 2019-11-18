@@ -35,19 +35,45 @@
                                         <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="obligatorio" class="form-control"></div>
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tipo de Documento de Identidad :</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="obligatorio" class="form-control"></div>
+                                        <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Tipo de Documento :</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="selectSm" id="selectSm" class="form-control-sm form-control">
+                                                <option value="0">Please select</option>
+                                                <option value="1">Option #1</option>
+                                                <option value="2">Option #2</option>
+                                                <option value="3">Option #3</option>
+                                                <option value="4">Option #4</option>
+                                                <option value="5">Option #5</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Documento de identidad :</label></div>
                                         <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="obligatorio" class="form-control"></div>
                                     </div>
+                                      <div class="row form-group">
+                                        <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Rol :</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="selectSm" id="selectSm" class="form-control-sm form-control">
+                                                <option value="0">Please select</option>
+                                                <option value="1">Option #1</option>
+                                                <option value="2">Option #2</option>
+                                                <option value="3">Option #3</option>
+                                                <option value="4">Option #4</option>
+                                                <option value="5">Option #5</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="email-input" class=" form-control-label">Telefono :</label></div>
+                                        <div class="col col-md-3"><label for="file-input" class=" form-control-label">Elige Imagen :</label></div>
+                                        <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="email-input" class=" form-control-label">Usuario :</label></div>
                                         <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="obligatorio" class="form-control"></div>
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="password-input" class=" form-control-label">Correo :</label></div>
+                                        <div class="col col-md-3"><label for="password-input" class=" form-control-label">Contraseña :</label></div>
                                         <div class="col-12 col-md-9"><input type="password" id="password-input" name="password-input" placeholder="obligatorio" class="form-control"></div>
                                     </div>                    
                                 </form>

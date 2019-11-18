@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="LibTag" prefix="tag"%>
 <%@page import="java.util.List"%>
-<%@page import="com.sistema.comidas.bean.CategoriaProducto"%>
+<%@page import="com.sistema.comidas.bean.CategoriaProductoBean"%>
 <%@page import="com.sistema.comidas.util.Wrapper"  %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <div id="right-panel" class="right-panel">

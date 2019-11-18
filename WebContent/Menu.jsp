@@ -60,10 +60,10 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarUsuarioMenu.jsp">Agregar
+								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarUsuarioMenu.jsp">Añadir Usuario
 							</a></li>
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Usuario/ListarUsuarioMenu.jsp">Listar
+								href="/LP_2_Sistema_Venta_3.0/Usuario/ListarUsuarioMenu.jsp">Listar Usuario
 							</a></li>
 						</ul></li>
 					<li class="menu-item-has-children dropdown"><a href="#"

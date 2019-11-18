@@ -2,6 +2,7 @@ package com.sistema.comidas.dao;
 
 import java.util.ArrayList;
 
+import com.sistema.comidas.bean.CategoriaProductoBean;
 import com.sistema.comidas.bean.UsuarioBean;
 
 public interface UsuarioDAO {
@@ -15,4 +16,6 @@ public interface UsuarioDAO {
 	
 	public int eliminarUsuario(UsuarioBean user);
 	
+	public UsuarioBean listarByID(int id);
+
 }

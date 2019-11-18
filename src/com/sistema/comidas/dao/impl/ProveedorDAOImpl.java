@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sistema.comidas.bean.CategoriaProducto;
+import com.sistema.comidas.bean.CategoriaProductoBean;
 import com.sistema.comidas.bean.ProveedorBean;
 import com.sistema.comidas.dao.ProveedorDAO;
 import com.sistema.comidas.util.MySQLConexion;

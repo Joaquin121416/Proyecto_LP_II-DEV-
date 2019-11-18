@@ -1,6 +1,6 @@
 package com.sistema.comidas.bean;
 
-public class CategoriaProducto {
+public class CategoriaProductoBean {
 
 	private int cat_pro_id;
 
@@ -11,7 +11,7 @@ public class CategoriaProducto {
 	private String cat_pro_est;
 
 
-	public CategoriaProducto(int cat_pro_id, String cat_pro_nom, String cat_pro_des, String cat_pro_est) {
+	public CategoriaProductoBean(int cat_pro_id, String cat_pro_nom, String cat_pro_des, String cat_pro_est) {
 		super();
 		this.cat_pro_id = cat_pro_id;
 		this.cat_pro_nom = cat_pro_nom;
@@ -19,7 +19,7 @@ public class CategoriaProducto {
 		this.cat_pro_est = cat_pro_est;
 	}
 
-	public CategoriaProducto() {
+	public CategoriaProductoBean() {
 		// TODO Auto-generated constructor stub
 	}
 

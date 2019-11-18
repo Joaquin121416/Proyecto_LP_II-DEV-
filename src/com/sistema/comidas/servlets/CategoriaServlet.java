@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sistema.comidas.bean.CategoriaProducto;
+import com.sistema.comidas.bean.CategoriaProductoBean;
 import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.GenericoDAO;
 import com.sistema.comidas.dao.factory.Factory;
@@ -50,7 +50,7 @@ public class CategoriaServlet extends HttpServlet {
 		String descripcion = (request.getParameter("des"));
 		// procesos
 
-		CategoriaProducto cat = new CategoriaProducto(0, nombre, descripcion, null);
+		CategoriaProductoBean cat = new CategoriaProductoBean(0, nombre, descripcion, null);
 
 		// llamar al Factory para insertar
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
@@ -83,7 +83,7 @@ public class CategoriaServlet extends HttpServlet {
 		// llamar al Factory para insertar
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
 		CategoriaDAO dao = bd.getCategoriaDAO();
-		ArrayList<CategoriaProducto> lis;
+		ArrayList<CategoriaProductoBean> lis;
 		lis = dao.listarCategoria();
 
 		if (lis.isEmpty()) {
@@ -109,7 +109,7 @@ public class CategoriaServlet extends HttpServlet {
 		int cod = Integer.parseInt(id);
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
 		CategoriaDAO dao = bd.getCategoriaDAO();
-		CategoriaProducto cat;
+		CategoriaProductoBean cat;
 		cat = dao.listarByID(cod);
 
 		String url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
@@ -126,7 +126,7 @@ public class CategoriaServlet extends HttpServlet {
 
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
 		CategoriaDAO dao = bd.getCategoriaDAO();
-		CategoriaProducto cat;
+		CategoriaProductoBean cat;
 		String nom = (String) request.getParameter("nom");
 		String des = (String) request.getParameter("des");
 		String url = "CategoriasProductos/ListaCategoriaMenu.jsp";
@@ -135,7 +135,7 @@ public class CategoriaServlet extends HttpServlet {
 		int cod = Integer.parseInt(codi);
 		
 		
-		cat = new CategoriaProducto();
+		cat = new CategoriaProductoBean();
 		cat.setCat_pro_id(cod);
 		cat.setCat_pro_des(des);
 		cat.setCat_pro_nom(nom);
@@ -155,7 +155,7 @@ public class CategoriaServlet extends HttpServlet {
 		int cod = Integer.parseInt(id);
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
 		CategoriaDAO dao = bd.getCategoriaDAO();
-		CategoriaProducto cat = new CategoriaProducto();
+		CategoriaProductoBean cat = new CategoriaProductoBean();
 		cat.setCat_pro_id(cod);
 		int res = dao.eliminarCategoria(cat);
 

@@ -2,18 +2,18 @@ package com.sistema.comidas.dao;
 
 import java.util.ArrayList;
 
-import com.sistema.comidas.bean.CategoriaProducto;
+import com.sistema.comidas.bean.CategoriaProductoBean;
 
 public interface CategoriaDAO {
 
-	public int agregarCategoria(CategoriaProducto cat);
+	public int agregarCategoria(CategoriaProductoBean cat);
 
-	public ArrayList<CategoriaProducto> listarCategoria();
+	public ArrayList<CategoriaProductoBean> listarCategoria();
 
-	public int modificarCategoria(CategoriaProducto cat);
+	public int modificarCategoria(CategoriaProductoBean cat);
 
-	public int eliminarCategoria(CategoriaProducto cat);
+	public int eliminarCategoria(CategoriaProductoBean cat);
 
-	CategoriaProducto listarByID(int id);
+	public CategoriaProductoBean listarByID(int id);
 
 }

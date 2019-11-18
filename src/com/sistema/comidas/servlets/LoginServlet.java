@@ -89,7 +89,6 @@ public class LoginServlet extends GenericoMB {
 
 			request.getRequestDispatcher("/Login.jsp").forward(request, response);
 
-			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 
 	}

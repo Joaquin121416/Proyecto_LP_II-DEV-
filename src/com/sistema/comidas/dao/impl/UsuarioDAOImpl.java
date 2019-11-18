@@ -31,5 +31,11 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		return 0;
 	}
 
+	@Override
+	public UsuarioBean listarByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }
