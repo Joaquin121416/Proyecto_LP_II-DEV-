@@ -24,15 +24,17 @@
 								<form action="/LP_2_Sistema_Venta_3.0/CategoriaServlet"
 									enctype="multipart/form-data">
 									<div class="card-body card-block">
-
+				
 										<class="form-horizontal">
 										<div class="row form-group">
 											<div class="col col-md-3">
+											
 												<label class=" form-control-label">Codigo :</label>
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="disabled-input" name="cod"
-													 class="form-control" disabled="" value="${cod}">
+													 class="form-control" readonly="true" value="${cod}">
+												 
 											</div>
 										</div>
 										<div class="row form-group">
@@ -53,12 +55,13 @@
 											<div class="col-12 col-md-9">
 												<textarea name="des" id="textarea-input" rows="9"
 													 class="form-control" >${des}</textarea>
+												
 											</div>
 										</div>
 									</div>
 									<div class="card-footer">
-										<button class="btn btn-primary btn-sm" name="opc" value="agr">
-											<i class="fa fa-dot-circle-o"></i> Agregar
+										<button class="btn btn-primary btn-sm" name="opc" value="act2">
+											<i class="fa fa-dot-circle-o"></i> Actualizar
 										</button>
 										<button type="reset" class="btn btn-danger btn-sm">
 											<i class="fa fa-ban"></i> Cancelar
@@ -66,7 +69,8 @@
 										<br>
 										<br>
 										<p>
-										<%
+										<%	
+									
 											Object mensaje = pageContext.findAttribute("mensaje");
 											if (mensaje != null) {
 												out.print(mensaje.toString());

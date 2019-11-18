@@ -86,7 +86,7 @@ public class LoginServlet extends GenericoMB {
 			session.setAttribute("ID", null);
 			session.setAttribute("usuario", null);
 
-			request.getRequestDispatcher("/LP_2_Sistema_Venta_3.0/Login.jsp").forward(request, response);
+			request.getRequestDispatcher("/Login.jsp").forward(request, response);
 		}
 
 	}

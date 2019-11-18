@@ -79,8 +79,36 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 
 	@Override
 	public int modificarCategoria(CategoriaProducto cat) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		int res = 0;
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		try {
+			conn = new MySQLConexion().getConexion();
+			String sql = "update TB_CATEGORIA_PRODUCTO set CAT_PRO_NOM =? ,CAT_PRO_DES=? where CAT_PRO_ID=?;";
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, cat.getCat_pro_nom());
+			pstm.setString(2, cat.getCat_pro_des());
+			pstm.setInt(3, cat.getCat_pro_id());
+
+			res = pstm.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstm != null)
+					pstm.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return res;
+	
+		
 	}
 
 	@Override

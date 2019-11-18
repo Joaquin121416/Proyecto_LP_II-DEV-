@@ -29,14 +29,16 @@
 									<div class="card-body">
 									
 									
-									<display:table  class="table" name="${ lista }" pagesize="10" export="true" decorator="com.sistema.comidas.util.Wrapper">
-										<display:column title="Codigo" property="cat_pro_id"></display:column>
+									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/CategoriaServlet" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
+										
+										<display:column title="Codigo" property="cat_pro_id" ></display:column>
             							<display:column title="Nombre" property="cat_pro_nom"></display:column>
             							<display:column title="Descripcion" property="cat_pro_des"></display:column>
             							<display:column title="Actualizar" property="seleccionaCategoria"></display:column>
             							<display:column title="Eliminar" property="eliminaCategoria" ></display:column>
+            							
 									</display:table>
-										
+									
 									</div>
 								
 							

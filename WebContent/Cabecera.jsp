@@ -48,7 +48,7 @@
 							<a class="nav-link" href="#"><i class="fa fa- user"></i>Mi
 								Usuario</a> <a class="nav-link" href="#"><i class="fa fa- user"></i>Mensajes
 								</a> <a class="nav-link" href="#"><i
-								class="fa fa -cog"></i>Opciones</a> <a class="nav-link" href="/LP_2_Sistema_Venta_Mejorado/Ingreso?opcion=sal" type="submit"><i
+								class="fa fa -cog"></i>Opciones</a> <a class="nav-link" href="/LP_2_Sistema_Venta_3.0/Ingreso?opcion=sal" type="submit"><i
 								class="fa fa-power -off"></i>Salir</a>
 						</div>
 					</div>
