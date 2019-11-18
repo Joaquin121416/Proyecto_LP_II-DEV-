@@ -85,66 +85,8 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 
 	@Override
 	public int eliminarCategoria(CategoriaProducto cat) {
-
-		int res = 0;
-		Connection conn = null;
-		PreparedStatement pstm = null;
-		try {
-			conn = new MySQLConexion().getConexion();
-			String sql = "update TB_CATEGORIA_PRODUCTO set cat_pro_est=0 where cat_pro_id=? ;";
-			
-			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, cat.getCat_pro_id());
-
-			res = pstm.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (pstm != null)
-					pstm.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return res;
-	}
-
-	@Override
-	public CategoriaProducto listarByID(int id) {
-		CategoriaProducto cat = new CategoriaProducto();
-		ResultSet res = null;
-		Connection conn = null;
-		PreparedStatement pstm = null;
-		try {
-			conn = new MySQLConexion().getConexion();
-			String sql = "select cat_pro_id,cat_pro_nom,cat_pro_des from TB_CATEGORIA_PRODUCTO where cat_pro_est and cat_pro_id= ?;";
-			
-			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, id);
-			res = pstm.executeQuery();
-			while (res.next()) {
-				cat = new CategoriaProducto(res.getInt(1), res.getString(2), res.getString(3),"1");
-				return cat;
-			}
-			
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (pstm != null)
-					pstm.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return cat;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

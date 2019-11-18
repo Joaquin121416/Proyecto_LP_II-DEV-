@@ -3,7 +3,6 @@ package com.sistema.comidas.dao.factory;
 import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.GenericoDAO;
 import com.sistema.comidas.dao.InsumosDAO;
-import com.sistema.comidas.dao.ProveedorDAO;
 import com.sistema.comidas.dao.UsuarioDAO;
 
 public abstract class Factory {
@@ -19,8 +18,6 @@ public abstract class Factory {
 	public abstract InsumosDAO getInsumoDAO();
 	
 	public abstract GenericoDAO getGenericoDAO(); 
-	
-	public abstract ProveedorDAO getProveedorDAO();
 	
 	
 	public static Factory getTipo(int tipo) {

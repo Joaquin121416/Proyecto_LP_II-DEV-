@@ -3,7 +3,6 @@ package com.sistema.comidas.dao.factory;
 import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.GenericoDAO;
 import com.sistema.comidas.dao.InsumosDAO;
-import com.sistema.comidas.dao.ProveedorDAO;
 import com.sistema.comidas.dao.UsuarioDAO;
 import com.sistema.comidas.dao.impl.CategoriaDAOImpl;
 import com.sistema.comidas.dao.impl.GenericoDAOImpl;
@@ -37,12 +36,6 @@ public class MySqlFactory extends Factory {
 
 	@Override
 	public InsumosDAO getInsumoDAO() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ProveedorDAO getProveedorDAO() {
 		// TODO Auto-generated method stub
 		return null;
 	}
