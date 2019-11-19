@@ -49,7 +49,7 @@
                                 </form>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary btn-sm" id="bEnviar" name="opc" value="reg">
+                                <button type="submit" class="btn btn-primary btn-sm" name="opc" value="reg">
                                     <i class="fa fa-dot-circle-o"></i> Agregar				
                                 </button>
                                 <button type="reset" class="btn btn-danger btn-sm">
