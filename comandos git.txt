@@ -1,0 +1,11 @@
+ls : comando para listar directorios y archivos.
+pwd: para ver en que ruta de nuestro sistema esta prosicionado el terminal.
+git init : inicializa un proyecto nuevo.
+git add: agrega un archivo al staging area.
+git commint: crea un primer punto de control de nuestro codigo.
+git config --global user.email : para configurar el email de este usuario.
+git config --global user.name : para configurar el nombre del usuario.
+git log : para ver todos los commit que hemos creado.
+git diff : para ver las diferencias hehas en los archivos.
+git branch <nombre de la nueva version> : ver o agregar otras versiones.
+git checkout <nombre de la verrsion> : cambiar de version.
