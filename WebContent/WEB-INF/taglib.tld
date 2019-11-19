@@ -29,6 +29,14 @@
 	<tagclass>com.sistema.comidas.util.Wrapper</tagclass>
 	</tag>
 	
+	<!--  TAG DEL MODAL DE LOS PRODUCTOS-->
+		<tag>
+		<name>tagModal</name>
+		<tagclass>com.sistema.comidas.tags.ModalTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>Muestra el modal de los productos</info>
+		
+	</tag>
 </taglib>
 
 

@@ -1,0 +1,86 @@
+
+.contenedor-box .contenido-prod .venta-box p{
+	color: black;
+	font-family: 'Bahnschrift';
+}
+
+.contenedor-box .contenido-prod h4{
+	text-align: left;
+	margin-top: 5%;
+}
+.venta-box .row-content .item-descripcion p{
+	font-weight: 5;
+	color: #6D6D6D;
+	line-height: 0.9em;
+	text-align: left;
+}
+
+.venta-box .row-content .item-descripcion b{
+	font-weight: 700;
+}
+.venta-box .row-content .item-precio{
+	
+}
+.venta-box .row-content .item-precio{
+	width: 10%;
+}
+.venta-box .row-content .item-descripcion{
+	width: 70%;
+	text-align: left;
+}
+.venta-box .row-content .img-ven{
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.col-sm-12{
+	margin-top: -1px;
+	border-top: 1px solid #9B9B9B;
+	border-bottom: 1px solid #9B9B9B;
+}
+.col-sm-12:hover{
+	background-color: #B3B3B3;
+		cursor: pointer;
+}
+
+.contenedor-box .contenido-prod .precios{
+	font-size: 13px;
+}
+
+.modal-body .banner-modal img{
+	width: 100%;
+	height: 100%;
+}
+
+.row-content{
+	display: flex;
+	flex-direction: row;
+}
+
+.row-content .img-ven img{
+	width: 30px;
+	height: 30px;
+}
+
+.container .cabecera-h4{
+	margin-left: 2%;
+}
+.modal-header .modal-title{
+	width: 400px;
+}
+.modal-header .pestañas{
+	width: 100%;
+	height: 100%;
+}
+.modal-header .pestañas .nav{
+	margin-left: 45%;
+}
+.modal-header .pestañas ul{
+	border-bottom: 0px;
+}
+
+.modal-header{
+	padding-bottom: 0px;
+}

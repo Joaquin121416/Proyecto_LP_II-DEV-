@@ -1,6 +1,8 @@
 package com.sistema.comidas.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sistema.comidas.bean.ProductoBean;
-import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.ProductoDAO;
 import com.sistema.comidas.dao.factory.Factory;
 
 /**
  * Servlet implementation class ProductoServlet
  */
-@WebServlet(name = "crud-producto", urlPatterns = { "/crud-producto" })
+@WebServlet("/ProductoServlet")
 public class ProductoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +27,7 @@ public class ProductoServlet extends HttpServlet {
 		System.out.println("Entro al servlet Producto");
 		String opc = request.getParameter("opc");
 		switch(opc) {
-		case "lst": listarProducto(request,response);break;
+		case "lis": listarProducto(request,response);break;
 		case "fil": filtrarProducto(request,response);break;
 		case "reg": registrarProducto(request,response);break;
 		case "act": actualizarProducto(request,response);break;
@@ -89,8 +90,33 @@ public class ProductoServlet extends HttpServlet {
 		
 	}
 
-	private void listarProducto(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void listarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// variables
+		String mensaje = null;
+		String url = null;
+		// entradas
+
+		// procesos
+		
+		// llamar al Factory para insertar
+		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
+		ProductoDAO dao = bd.getProductoDAO();
+		ArrayList<ProductoBean> lis;
+		lis = dao.listarProductos();
+
+		if (lis.isEmpty()) {
+			mensaje = "no se encontraron datos";
+			url = "Productos/ListaProductoMenu.jsp";
+		} else {
+			mensaje = "";
+			url = "Productos/ListaProductoMenu.jsp";
+		}
+
+		// salidas
+		request.setAttribute("lista", lis);
+		request.setAttribute("mensaje", mensaje);
+		request.getRequestDispatcher(url).forward(request, response);
 		
 	}
 

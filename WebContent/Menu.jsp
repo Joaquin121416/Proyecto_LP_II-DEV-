@@ -51,12 +51,8 @@
 								href="/LP_2_Sistema_Venta_3.0/Productos/AgregarProductoMenu.jsp">Añadir Producto
 							</a></li>
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Productos/ListarProductoMenu.jsp">Listar Producto
+								href="/LP_2_Sistema_Venta_3.0/Productos/ListaProductoMenu.jsp">Listar Producto
 							</a></li>
-							<li><i class="menu-icon fa fa-map-o"></i><a
-								href="maps-gmap.html">Google Maps</a></li>
-							<li><i class="menu-icon fa fa-street-view"></i><a
-								href="maps-vector.html">Vector Maps</a></li>
 						</ul></li>
 
 					<li class="menu-item-has-children dropdown"><a href="#"
