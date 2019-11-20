@@ -18,12 +18,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-	<link rel="stylesheet" type="text/css" href="css/form.css">
+	<link rel="stylesheet" type="text/css" href="resourcesIndexCli/css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="resourcesIndexCli/css/form.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-	<link rel="stylesheet" type="text/css" href="css/promos.css">
-	<link rel="stylesheet" type="text/css" href="css/estilos-modal.css">
-	<link href="css/imagehover.min.css" rel="stylesheet" media="all">
+	<link rel="stylesheet" type="text/css" href="resourcesIndexCli/css/promos.css">
+	<link rel="stylesheet" type="text/css" href="resourcesIndexCli/css/estilos-modal.css">
+	<link href="resourcesIndexCli/css/imagehover.min.css" rel="stylesheet" media="all">
 
 	<title>Fasty | FastFood</title>
 </head>
@@ -65,7 +65,7 @@
                     <div class="testimonial">
                      	<h2 class="title">PROMO 1</h2>
                     	<div class="img-promo">
-							 <img src="promo1.jpg">
+							 <img src="#">
                    	 	</div>
 
                    	 	<div class="description">
@@ -84,7 +84,7 @@
                      <div class="testimonial">
                      	<h2 class="title">PROMO 2</h2>
                     	<div class="img-promo">
-							 <img src="promo1.jpg">
+							 <img src="#">
                    	 	</div>
 
                    	 	<div class="description">
@@ -102,7 +102,7 @@
                     <div class="testimonial">
                      	<h2 class="title">PROMO 3</h2>
                     	<div class="img-promo">
-							 <img src="promo1.jpg">
+							 <img src="#">
                    	 	</div>
 
                    	 	<div class="description">
@@ -120,7 +120,7 @@
                      <div class="testimonial">
                      	<h2 class="title">PROMO 4</h2>
                     	<div class="img-promo">
-							 <img src="promo1.jpg">
+							 <img src="#">
                    	 	</div>
 
                    	 	<div class="description">
@@ -137,7 +137,7 @@
                      <div class="testimonial">
                      	<h2 class="title">PROMO 5</h2>
                     	<div class="img-promo">
-							 <img src="promo1.jpg">
+							 <img src="#">
                    	 	</div>
 
                    	 	<div class="description">
@@ -154,7 +154,7 @@
                         <div class="testimonial">
                      	<h2 class="title">PROMO 6</h2>
                     	<div class="img-promo">
-							 <img src="promo1.jpg">
+							 <img src="#">
                    	 	</div>
 
                    	 	<div class="description">
@@ -179,17 +179,17 @@
 				<p class="after">Siempre mejorando para ti</p>
 				<div class="servicios">
 					<div class="caja-servicios">
-						<img src="img/heart.png">
+						<img src="resourcesIndexCli/img/heart.png">
 						<h4>RECIBE PEDIDOS ONLINE</h4>
 						<p>Permite que tus clientes vean tu carta completa y pidan directamente. Recibiendo un email con el detalle del pedido.</p>
 					</div>
 					<div class="caja-servicios">
-						<img src="img/responsive.png">
+						<img src="resourcesIndexCli/img/responsive.png">
 						<h4>ADAPTABLE A WEB Y FACEBOOK</h4>
 						<p>Integrado a tu página web y Facebook, ahora tus clientes prodrán ordenar desde cualquier dispositivo, PC o mobile.</p>
 					</div>
 					<div class="caja-servicios">
-						<img src="img/efectos.png">
+						<img src="resourcesIndexCli/img/efectos.png">
 						<h4>OBTEN LOS DATOS AL INSTANTE</h4>
 						<p>Recibirás el detalle completo del pedido con la información del cliente, reduciendo tiempos en atención telefónica.</p>
 					</div>
@@ -214,7 +214,7 @@
 				<!--PIZZERIAS-->
 				<div class="cont-prod pizzas" data-toggle="modal" data-target="#exampleModalScrollable">
 					<div class="img-prod">
-						 <img src="img/clientes-img/pizza.jpg">
+						 <img src="resourcesIndexCli/img/clientes-img/pizza.jpg">
 						 <div class="details">
 							<div class="content">
 								<h2>Restaurante Pizzeria</h2>
@@ -231,7 +231,7 @@
 
 				<div class="cont-prod pizzas" data-toggle="modal" data-target="#exampleModalScrollable">
 					<div class="img-prod">
-						<img src="img/clientes-img/pizza2.jpg">
+						<img src="resourcesIndexCli/img/clientes-img/pizza2.jpg">
 						<div class="details">
 							<div class="content">
 								<h2>Pizzeria Artesanal</h2>
@@ -248,7 +248,7 @@
 				<!--HAMBURGUESERIAS-->
 				<div class="cont-prod burguers" data-toggle="modal" data-target="#exampleModalScrollable">
 					<div class="img-prod">
-						<img src="img/clientes-img/burguer.jpg">
+						<img src="resourcesIndexCli/img/clientes-img/burguer.jpg">
 						<div class="details">
 							<div class="content">
 								<h2>Hamburguesas Artesanales</h2>
@@ -266,7 +266,7 @@
 				<!--POLLERIAS-->
 				<div class="cont-prod chicken" data-toggle="modal" data-target="#exampleModalScrollable">
 					<div class="img-prod">
-						<img src="img/clientes-img/chicken.jpg">
+						<img src="resourcesIndexCli/img/clientes-img/chicken.jpg">
 						<div class="details">
 							<div class="content">
 								<h2>Pollos a la brasa</h2>
@@ -283,7 +283,7 @@
 
 				<div class="cont-prod chicken" data-toggle="modal" data-target="#exampleModalScrollable">
 					<div class="img-prod">
-						<img src="img/clientes-img/chicken2.jpg">
+						<img src="resourcesIndexCli/img/clientes-img/chicken2.jpg">
 						<div class="details">
 							<div class="content">
 								<h2>Pollos a la brasa</h2>
@@ -301,7 +301,7 @@
 				<!--LICORERIAS-->
 				<div class="cont-prod bebidas" data-toggle="modal" data-target="#exampleModalScrollable">
 					<div class="img-prod">
-						<img src="img/clientes-img/drink.jpg">
+						<img src="resourcesIndexCli/img/clientes-img/drink.jpg">
 						<div class="details">
 							<div class="content">
 								<h2>Licoreria a domicilio</h2>
@@ -355,7 +355,7 @@
 				  <div class="tab-pane fade show active" id="carta" role="tabpanel" aria-labelledby="carta-tab">
 
 			      	<div class="banner-modal">
-			      		<img src="img/clientes-img/pizza.jpg" style="height: 300px">
+			      		<img src="resourcesIndexCli/img/clientes-img/pizza.jpg" style="height: 300px">
 			      	</div>
 			      	<div class="contenedor-box">
 			      		<!--	GRID PROMOCIONES -->
@@ -372,7 +372,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -393,7 +393,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -413,7 +413,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -436,7 +436,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -456,7 +456,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -476,7 +476,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -511,7 +511,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src=img/modal-cli-img/pizzeria/pizza.jpg>
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -532,7 +532,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src=img/modal-cli-img/pizzeria/pizza.jpg>
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -552,7 +552,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src=img/modal-cli-img/pizzeria/pizza.jpg>
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -575,7 +575,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src=img/modal-cli-img/pizzeria/pizza.jpg>
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -595,7 +595,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src=img/modal-cli-img/pizzeria/pizza.jpg>
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -615,7 +615,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src=img/modal-cli-img/pizzeria/pizza.jpg>
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -636,7 +636,7 @@
 			      		</div>
 
 
-			      	<!--	GRID WRAPS -->
+			      	<!--	GRID PIZZAS -->
 							<div class="contenido-prod">
 			      			<br>
 			      			<div class="container">
@@ -650,7 +650,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -671,7 +671,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -691,7 +691,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -714,7 +714,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -734,7 +734,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -754,7 +754,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -789,7 +789,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -810,7 +810,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -830,7 +830,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -853,7 +853,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -873,7 +873,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -893,7 +893,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -927,7 +927,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -948,7 +948,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -968,7 +968,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -991,7 +991,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -1011,7 +1011,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -1031,7 +1031,7 @@
 								     			<div class="venta-box">
 			      										<div class="row row-content">
 			      											<div class="img-ven">
-			      												<img src="img/modal-cli-img/pizzeria/pizza.jpg">
+			      												<img src="resourcesIndexCli/img/modal-cli-img/pizzeria/pizza.jpg">
 			      											</div>
 			      											<div class="item-descripcion">
 			      												<b>Nombre del producto</b>
@@ -1057,11 +1057,97 @@
 				  <!--PESTAÑA DEL PEDIDO-->
 				  <div class="tab-pane fade" id="pedido" role="tabpanel" aria-labelledby="pedido-tab">
 				  		<!--GENERADO SEGUN EL PRODUCTO-->
-
+							<div class="card" style="width: 25rem;">
+							  <img src="resourcesIndexCli/img/Ejemplo.png" class="card-img-top" alt="...">
+							  <div class="card-header">
+							    <p class="card-text">Nombre del producto : ---</p>
+							    <p class="card-text">Descripcion : ---</p>
+							    <textarea class="form-control" placeholder="Ingresa una descripcion adicional"></textarea>
+							    <br>
+							    <div class="input-group">
+								  <input placeholder="Ingresa la cantidad" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+								  <div class="input-group-append">
+								    <span class="input-group-text">S/.</span>
+								    <span class="input-group-text">9.99</span>
+								  </div>
+								</div>
+							  </div>
+							  <div class="card-body">
+							    <a href="#"  class="btn btn-primary">Agregar</a>
+							    <a href="#"  class="btn btn-secondary">Cancelar</a>
+							  </div>
+							</div>
 
 				  </div>
 				  <!--PESTAÑA DEL CARRITO-->
 				  <div class="tab-pane fade" id="carrito" role="tabpanel" aria-labelledby="carrito-tab">
+				  		<div class="card" style="width: 100%;">
+						  <div class="card-body">
+						    <h5 class="card-title">Resumen del pedido</h5>
+						    <h6 class="card-subtitle mb-2 text-muted">Subtotal : ------</h6>
+						    <p class="card-text">Informacion : ------</p>
+						    <p class="card-text">Informacion : ------</p>
+						    <p class="card-text">Informacion : ------</p>
+						    <h6 class="card-subtitle mb-2 text-muted">Total a pagar : ------</h6>
+						  </div>
+						</div>
+				  	<div class="card">
+				  			<h2>Listo para pagar</h2>
+						  <div class="card-body">
+						   <form action="#" class="credit-card-div">
+						<div class="panel panel-default" >
+						 <div class="panel-heading">
+						     
+						      <div class="row ">
+						              <div class="col-md-12">
+						                  <input type="text" class="form-control" placeholder="Numero de tarjeta" />
+						              </div>
+						       </div>
+						       <br>
+						     <div class="row ">
+						              <div class="col-md-3 col-sm-3 col-xs-3">
+						                  <span class="help-block text-muted small-font" > Mes Expiracion</span>
+						                  <input type="text" class="form-control" placeholder="Mes" />
+						              </div>
+						              <br>
+						         <div class="col-md-3 col-sm-3 col-xs-3">
+						                  <span class="help-block text-muted small-font" >  Año Expiracion</span>
+						                  <input type="text" class="form-control" placeholder="Año" />
+						              </div>
+						        <div class="col-md-3 col-sm-3 col-xs-3">
+						                  <span class="help-block text-muted small-font" >  CCV</span>
+						                  <input type="text" class="form-control" placeholder="CCV" />
+						              </div>
+						         <div class="col-md-3 col-sm-3 col-xs-3">
+						<img src="resourcesIndexCli/img/credit.jpg" style="width: 40px" class="img-rounded" />
+						         </div>
+						          </div>
+						          <br>
+						     <div class="row ">
+						              <div class="col-md-12 pad-adjust">
+
+						                  <input type="text" class="form-control" placeholder="Nombre del titular" />
+						              </div>
+						          </div>
+						     <div class="row">
+						<div class="col-md-12 pad-adjust">
+
+						</div>
+						     </div>
+						       <div class="row ">
+
+						              <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+						              	<br>
+						                  <input type="submit"  class="btn btn-warning btn-block" value="PAY NOW" />
+						              </div>
+						          </div>
+						     
+						                   </div>
+						              </div>
+					</form>
+						  </div>
+					</div>
+
 				  		
 				  </div>
 				</div>
@@ -1111,9 +1197,9 @@
 
 
 
-     <script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/filtros.js"></script>
+     <script src="resourcesIndexCli/js/jquery.js"></script>
+    <script src="resourcesIndexCli/js/main.js"></script>
+    <script src="resourcesIndexCli/js/filtros.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 
 
