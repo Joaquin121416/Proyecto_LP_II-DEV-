@@ -1128,31 +1128,34 @@
 								<div class="tab-pane fade" id="pedido" role="tabpanel"
 									aria-labelledby="pedido-tab">
 									<!--GENERADO SEGUN EL PRODUCTO-->
-
-									<div class="card" style="width: 25rem;">
-										<img src="resourcesIndexCli/img/Ejemplo.png"
-											class="card-img-top" alt="...">
-										<div class="card-header">
-											<p class="card-text">Nombre del producto : ---</p>
-											<p class="card-text">Descripcion : ---</p>
-											<textarea class="form-control"
-												placeholder="Ingresa una descripcion adicional"></textarea>
-											<br>
-											<div class="input-group">
-												<input placeholder="Ingresa la cantidad" type="number"
-													class="form-control"
-													aria-label="Dollar amount (with dot and two decimal places)">
-												<div class="input-group-append">
-													<span class="input-group-text">S/.</span> <span
-														class="input-group-text">9.99</span>
+									<form action="" method="">
+										<div class="card" style="width: 25rem;">
+											<img src="resourcesIndexCli/img/Ejemplo.png"
+												class="card-img-top" alt="...">
+											<div class="card-header">
+												<p class="card-text">Codigo del producto : ---</p>
+												<p class="card-text">Nombre del producto : ---</p>
+												<p class="card-text">Descripcion : ---</p>
+												<textarea class="form-control"
+													placeholder="Ingresa una descripcion adicional"></textarea>
+												<br>
+												<div class="input-group">
+													<input placeholder="Ingresa la cantidad" type="number"
+														class="form-control"
+														aria-label="Dollar amount (with dot and two decimal places)">
+													<div class="input-group-append">
+														<span class="input-group-text">S/.</span> <span
+															class="input-group-text">9.99</span>
+													</div>
 												</div>
 											</div>
+											<div class="card-body">
+												<button submit="" class="btn btn-primary">Agregar</button> <button
+													class="btn btn-secondary">Cancelar</button>
+											</div>
 										</div>
-										<div class="card-body">
-											<a href="#" class="btn btn-primary">Agregar</a> <a href="#"
-												class="btn btn-secondary">Cancelar</a>
-										</div>
-									</div>
+									</form>
+								
 
 								</div>
 								<!--PESTAÑA DEL CARRITO-->
@@ -1311,7 +1314,7 @@
 												    </div>
 												  </div>
 												
-												  <button type="submit" class="btn btn-primary">Sign in</button>
+												  <button type="submit" class="btn btn-primary">Aceptar</button>
 												</form>
 												<!---------------AQUI ACABA INFORMACION DE REGISTRO----------------------------------->
 									      </div>

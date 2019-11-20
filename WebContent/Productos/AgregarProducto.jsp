@@ -19,11 +19,11 @@
                                 <strong>Agregar Producto</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="crud-producto" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <form action="/LP_2_Sistema_Venta_3.0/crudProducto"  enctype="multipart/form-data" class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label class=" form-control-label">Codigo :</label></div>
                                         <div class="col-12 col-md-9">
-                                            <p class="form-control-static">Codigo</p>
+                                            <p class="form-control-static">Autogenerado</p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -41,7 +41,7 @@
                                    <div class="row form-group">
                                         <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Categoria</label></div>
                                         <div class="col-12 col-md-9">
-                                            <select name="selectSm" id="selectSm" class="form-control-sm form-control">
+                                            <select name="cboCategoria" id="selectSm" class="form-control-sm form-control">
                                                 <option value="0">Please select</option>
                                                 <option value="1">Option #1</option>
                                                 <option value="2">Option #2</option>
@@ -55,8 +55,8 @@
                                         <div class="col col-md-3"><label for="file-input" class=" form-control-label">Elige Imagen :</label></div>
                                         <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
                                     </div>
-                                </form>
-                            </div>
+                                
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary btn-sm" name="opc" value="reg">
                                     <i class="fa fa-dot-circle-o"></i> Agregar				
@@ -67,15 +67,11 @@
                                 										<br>
 										<br>
 										<p>
-										<%
-											Object mensaje = pageContext.findAttribute("mensaje");
-											if (mensaje != null) {
-												out.print(mensaje.toString());
-												
-											}
-										%>
+											${msg}
 										</p>
                             </div>
+ 						    </form>
+ 					 </div>
                         </div>                
                     </div>
 

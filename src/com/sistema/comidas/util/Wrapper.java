@@ -33,7 +33,7 @@ public class Wrapper extends TableDecorator{
 	public String getSeleccionaProducto() {
 		ProductoBean  obj = (ProductoBean) getCurrentRowObject();
 		
-		String selecciona ="<a class=\"btn btn-primary btn-sm\" href=\"/LP_2_Sistema_Venta_3.0/crud-producto?opc=act1&codigo="+ obj.getPRO_ID()+"\" value=\"\">\r\n" + 
+		String selecciona ="<a class=\"btn btn-primary btn-sm\" href=\"/LP_2_Sistema_Venta_3.0/crudProducto?opc=act1&codigo="+ obj.getPRO_ID()+"\" value=\"\">\r\n" + 
 				"											<i class=\"fa fa-dot-circle-o\"></i> Actualizar\r\n" + 
 				"										</a>";
 		return selecciona;
@@ -43,7 +43,7 @@ public class Wrapper extends TableDecorator{
 	public String getEliminaProducto() {
 		ProductoBean  obj = (ProductoBean) getCurrentRowObject();
 		
-		String selecciona ="<a class=\"btn btn-primary btn-sm\" href=\"/LP_2_Sistema_Venta_3.0/crud-producto?opc=eli&codigo="+ obj.getPRO_ID()+"\" value=\"\">\r\n" + 
+		String selecciona ="<a class=\"btn btn-primary btn-sm\" href=\"/LP_2_Sistema_Venta_3.0/crudProducto?opc=eli&codigo="+ obj.getPRO_ID()+"\" value=\"\">\r\n" + 
 				"											<i class=\"fa fa-dot-circle-o\"></i> Eliminar\r\n" + 
 				"										</a>";
 		return selecciona;

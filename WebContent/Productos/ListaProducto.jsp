@@ -24,12 +24,12 @@
 								<div class="card-header">
 									<strong>Lista Productos</strong>
 								</div>
-								<form action="/LP_2_Sistema_Venta_3.0/ProductoServlet"
+								<form action="/LP_2_Sistema_Venta_3.0/crudProducto"
 										enctype="multipart/form-data">
 									<div class="card-body">
 									
 									
-									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/ProductoServlet" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
+									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/crudProducto" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
 										
 										<display:column title="Codigo" property="PRO_ID" ></display:column>
             							<display:column title="Nombre" property="PRO_NOM"></display:column>

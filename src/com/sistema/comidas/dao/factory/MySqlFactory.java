@@ -53,7 +53,7 @@ public class MySqlFactory extends Factory {
 	@Override
 	public ProductoDAO getProductoDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ProductoDAOImpl();
 	}
 
 
