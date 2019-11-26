@@ -37,7 +37,7 @@
 							<li><i class="menu-icon fa fa-map-o"></i><a href=".jsp">Lista
 									de Clientes</a></li>
 							<li><i class="menu-icon fa fa-street-view"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Clientes/AgregarClienteMenu.jsp">Añadir
+								href="/LP_2_Sistema_Venta_3.0/Clientes/AgregarClienteMenu.jsp">AÃ±adir
 									Cliente</a></li>
 						</ul></li>
 
@@ -48,7 +48,7 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Productos/AgregarProductoMenu.jsp">Añadir Producto
+								href="/LP_2_Sistema_Venta_3.0/Productos/AgregarProductoMenu.jsp">AÃ±adir Producto
 							</a></li>
 							<li><i class="fa fa-table"></i><a
 								href="/LP_2_Sistema_Venta_3.0/Productos/ListaProductoMenu.jsp">Listar Producto
@@ -62,7 +62,7 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarUsuarioMenu.jsp">Añadir Usuario
+								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarUsuarioMenu.jsp">AÃ±adir Usuario
 							</a></li>
 							<li><i class="fa fa-table"></i><a
 								href="/LP_2_Sistema_Venta_3.0/Usuario/ListarUsuarioMenu.jsp">Listar Usuario
@@ -85,13 +85,18 @@
 						aria-haspopup="true" aria-expanded="false"> <i
 							class="menu-icon fa fa-archive"></i>Insumo
 					</a>
-						<ul class="sub-menu children dropdown-menu">
-							<li><i class="menu-icon fa fa-th"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Insumos/AgregarInsumoMenu.jsp">Agregar
-									Insumo </a></li>
-							<li><i class="menu-icon fa fa-th"></i><a
-								href="forms-advanced.html">Advanced Form</a></li>
+					<ul class="sub-menu children dropdown-menu">
+					<li><i class="menu-icon fa fa-th"></i><a
+					href="/LP_2_Sistema_Venta_3.0/Insumos/AgregarInsumoMenu.jsp">Agregar
+					Insumos </a></li>
+					<li><i class="fa fa-table"></i><a
+					href="/LP_2_Sistema_Venta_3.0/Insumos/ListaInsumoMenu.jsp">Listar Insumos
+					</a></li>
+					<li><i class="fa fa-table"></i><a
+					href="/LP_2_Sistema_Venta_3.0/Insumos/ActualizaInsumoMenu.jsp">Actualizar Insumos
+							</a></li>
 						</ul></li>
+
 
 					<li class="menu-item-has-children dropdown"><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown"
@@ -103,7 +108,7 @@
 								href="/LP_2_Sistema_Venta_3.0/CategoriaServlet?opc=lis">Lista
 									de Categorias</a></li>
 							<li><i class="menu-icon fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/CategoriasProductos/AgregarCategoriaMenu.jsp">Añadir
+								href="/LP_2_Sistema_Venta_3.0/CategoriasProductos/AgregarCategoriaMenu.jsp">AÃ±adir
 									Categorias</a></li>
 						</ul></li>
 
