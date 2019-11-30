@@ -1,4 +1,6 @@
-
+.modal-open .modal{
+	z-index: 20000;
+}
 .contenedor-box .contenido-prod .venta-box p{
 	color: black;
 	font-family: 'Bahnschrift';

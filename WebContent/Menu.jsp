@@ -51,7 +51,7 @@
 								href="/LP_2_Sistema_Venta_3.0/Productos/AgregarProductoMenu.jsp">Añadir Producto
 							</a></li>
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Productos/ListaProductoMenu.jsp">Listar Producto
+								href="crudProducto?opc=lis">Listar Producto
 							</a></li>
 						</ul></li>
 
