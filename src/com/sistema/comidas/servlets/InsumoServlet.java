@@ -14,8 +14,9 @@ import com.sistema.comidas.bean.InsumosBean;
 import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.InsumosDAO;
 import com.sistema.comidas.dao.factory.Factory;
+import com.sistema.comidas.presentacion.GenericoMB;
 @WebServlet("/InsumoServlet")
-public class InsumoServlet extends HttpServlet {
+public class InsumoServlet extends GenericoMB {
 	private static final long serialVersionUID = 1L;
 
 	/**

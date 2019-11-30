@@ -9,3 +9,8 @@ git log : para ver todos los commit que hemos creado.
 git diff : para ver las diferencias hehas en los archivos.
 git branch <nombre de la nueva version> : ver o agregar otras versiones.
 git checkout <nombre de la verrsion> : cambiar de version.
+
+
+version o rama
+
+

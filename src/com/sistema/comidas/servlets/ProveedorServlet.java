@@ -14,12 +14,13 @@ import com.sistema.comidas.bean.ProveedorBean;
 import com.sistema.comidas.dao.InsumosDAO;
 import com.sistema.comidas.dao.ProveedorDAO;
 import com.sistema.comidas.dao.factory.Factory;
+import com.sistema.comidas.presentacion.GenericoMB;
 
 /**
  * Servlet implementation class ProveedorServlet
  */
 @WebServlet(description = "ProveedorServlet", urlPatterns = { "/ProveedorServlet" })
-public class ProveedorServlet extends HttpServlet {
+public class ProveedorServlet extends GenericoMB {
 	private static final long serialVersionUID = 1L;
 
 	/**

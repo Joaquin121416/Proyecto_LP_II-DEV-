@@ -13,12 +13,13 @@ import com.sistema.comidas.bean.CategoriaProductoBean;
 import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.GenericoDAO;
 import com.sistema.comidas.dao.factory.Factory;
+import com.sistema.comidas.presentacion.GenericoMB;
 import com.sistema.comidas.util.Wrapper;
 /**
  * Servlet implementation class CategoriaServlet
  */
 @WebServlet(name = "CategoriaServlet", urlPatterns = "/CategoriaServlet")
-public class CategoriaServlet extends HttpServlet {
+public class CategoriaServlet extends GenericoMB {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

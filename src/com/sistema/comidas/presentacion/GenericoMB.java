@@ -11,7 +11,7 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 
-
+import com.mysql.cj.protocol.ServerSession;
 import com.sistema.comidas.bean.GenericoBean;
 import com.sistema.comidas.bean.UsuarioBean;
 import com.sistema.comidas.servlets.LoginServlet;
@@ -22,7 +22,7 @@ import com.sistema.comidas.util.Net;
 public class GenericoMB extends HttpServlet{
 
 	
-	private HttpSession session= null;
+	private HttpSession session;
 	public HttpSession getSession() {
 		return session;
 	}
@@ -30,6 +30,8 @@ public class GenericoMB extends HttpServlet{
 	public void setSession(HttpSession session) {
 		this.session = session;
 	}
+	
+	
 
 	private static final long serialVersionUID = 1L;
 
@@ -67,7 +69,7 @@ public class GenericoMB extends HttpServlet{
 				Object obj=session.getAttribute("usuario");
 				if (obj!=null) {
 					UsuarioBean oUsuarioBean=(UsuarioBean)obj;
-					ge.setAudIdUsuario(oUsuarioBean.getCodigo());
+					ge.setAudIdUsuario(oUsuarioBean.getUsuario_id());
 				}
 				
 				// Sesion

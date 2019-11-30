@@ -21,22 +21,47 @@
 			<name>campo</name>
 			<required>true</required>
 		</attribute>
-		
 	</tag>
-	
+	<!-- Combos -->
 	<tag>
-	<name>tagCodigoCategoriaSelecciona</name>
-	<tagclass>com.sistema.comidas.util.Wrapper</tagclass>
+		<name>tagRoles</name>
+		<tagclass>com.sistema.comidas.tags.RolesTag</tagclass>
+		<bodycontent>false</bodycontent>
+		<info></info>
+
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
 	</tag>
-	
-	<!--  TAG DEL MODAL DE LOS PRODUCTOS-->
-		<tag>
+
+	<tag>
+		<name>tagDocumentos</name>
+		<tagclass>com.sistema.comidas.tags.TipoDeDocumentosTag</tagclass>
+		<bodycontent>false</bodycontent>
+		<info></info>
+		
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>tagCodigoCategoriaSelecciona</name>
+		<tagclass>com.sistema.comidas.util.Wrapper</tagclass>
+	</tag>
+
+	<!-- TAG DEL MODAL DE LOS PRODUCTOS -->
+	<tag>
 		<name>tagModal</name>
 		<tagclass>com.sistema.comidas.tags.ModalTag</tagclass>
 		<bodycontent>empty</bodycontent>
 		<info>Muestra el modal de los productos</info>
-		
 	</tag>
+
 </taglib>
 
 

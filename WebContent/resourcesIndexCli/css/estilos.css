@@ -1,0 +1,475 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'open sans';
+	background: #f2f2f2;
+}
+*::-webkit-scrollbar{
+	width: 12px;
+}
+
+*::-webkit-scrollbar-thumb{
+	background: rgba(250,0,10);
+	border-radius: 5px;
+	border-right: 3px solid white;
+	border-left: 3px solid white;
+}
+
+
+img{
+	vertical-align: top;
+}
+
+/*HEADER*/
+header{
+	width: 100%;
+	height: 800px;
+	background: linear-gradient(to top,
+	rgba(100,109,50, .45),
+  	rgba(200,80,10, .6),
+ 	 rgba(29,241,171, .6)
+  
+  ), url(../img/banner-burguer.jpg);
+	  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+	    box-shadow: 0 0 10px 0 rgba(0,0,0,1);
+}
+
+header .textos{
+	text-shadow: 5px 5px 5px black;
+}
+
+.nav1 .contenedor-nav .logo{
+	border:4px solid white;
+	border-radius: 50px;
+	position: relative;
+	overflow: hidden;
+	transition: 1s;
+}
+
+.nav2 .contenedor-nav .logo{
+	border:4px solid #464646;
+	border-radius: 50px;
+	position: relative;
+	overflow: hidden;
+	transition: 1s;
+}
+nav{ 
+	width: 100%;
+	position: fixed;
+	z-index: 2;
+}
+nav ul{
+	list-style: none;
+	text-align: center;
+}
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a:hover{
+	color: #555;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .2s;
+}
+nav .enlaces a{
+	position:relative;
+  	z-index: 1;
+	padding: 10px;
+	margin-right: 13px;
+	font-size: 17px;
+	font-weight: 200px;
+	text-decoration: none;
+	color: inherit;
+}
+
+nav .enlaces a:hover{
+	color: white;
+}
+
+nav .enlaces a:after{
+  display: block;
+  position: absolute;
+  border: 1px solid #1C1C1C;
+  border-radius: 2px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  content: '.';
+  color: transparent;
+  background: rgba(250,0,10);
+  visibility: none;
+  opacity: 0;
+  z-index: -1;
+}
+nav .enlaces a:hover:after{
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+.btn-carta{
+	box-shadow: 0 10px 10px 0 rgba(0,0,0,1);
+}
+.textos .btn-carta{
+	background-color: transparent;
+	padding: 15px 20px 15px 20px;
+	border-radius: 12px;
+	margin-top: 100px;
+	border: 2px solid #1C1C1C;
+	cursor: pointer;
+	transition: 0.6s;
+}
+.textos .btn-carta:hover{
+	background-color: rgba(250,0,10);
+}
+.textos .btn-carta a{
+	color: white;
+	text-decoration: none;
+}
+.nav1{
+	background: rgba(0,0,0,.5);
+	height: 90px;
+	color: #fff;
+}
+
+.nav2{
+  box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
+  background: #f2f2f2;
+  height:100px;
+  color:#000;
+}
+
+.contenedor-nav{
+	display: flex;
+	margin: auto;
+	width: 90%;
+	max-width: 1000px;
+	justify-content: space-between;
+	align-items: center;
+	height: inherit;
+	overflow: hidden;
+}
+
+.logo, .logo img{ height: 80px; }
+
+.icono{
+	display: none;
+	font-size: 24px;
+	padding: 23.5px 20px;
+}
+
+.textos{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	color: #fff;
+	overflow: hidden;
+	text-align: center;
+}
+.textos>h1{font-size: 80px;}
+.textos>h2{font-size: 30px; font-weight: 300;}
+
+/*MAIN*/
+.contenedor{
+	margin: auto;
+	padding: 10px 0;
+	width: 90%;
+	max-width: 1000px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.contenedor h3{
+	font-size: 33px;
+	color: rgba(250,0,10);
+	margin-bottom: 20px;
+}
+
+.contenedor p{
+	font-size: 15px;
+	font-weight: 300px;
+	color: rgba(250,0,10);
+}
+
+.after::after{
+	content: '';
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	width: 100px;
+	height: 2px;
+	background: rgba(300,0,10);
+	margin-bottom: 20px;
+}
+
+.img-prod figure{
+	height: 100%;
+}
+section .promociones{
+	box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
+}
+
+.about{
+	box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
+}
+
+.prod{
+	height: 80%;
+}
+
+.texto-promos{
+	height: 20%;
+	width: 100%;
+	padding: 10px 0;
+}
+
+.about{
+	background: url(../img/serv.jpg);
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	height: auto;
+}
+.servicios{
+	display: flex;
+	color: #fff;
+	justify-content: space-between;
+	margin: auto;
+	flex-wrap: wrap;
+}
+.caja-servicios{
+	width: 30%;
+	margin: auto;
+	text-align: center;
+}
+.caja-servicios>h4{
+	margin-bottom: 10px;
+}
+
+.caja-servicios p{
+	text-align: center;
+}
+
+.botones-prod{
+	overflow: hidden;
+}
+
+.botones-prod li{
+	display: inline-block;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	padding: 6px 12px;
+	border: 1px solid rgba(250,0,10);
+	list-style: none;
+	color: rgba(250,0,10);
+}
+
+.botones-prod li:hover{
+	background: rgba(300,0,10);
+	color: #fff;
+	cursor: pointer;
+}
+
+.botones-prod .active{
+	background: rgba(300,0,10);
+	color: #fff;
+}
+.galeria-prod{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.cont-prod{
+	width: 31%;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,.5);
+	height: 300px;
+	overflow: hidden;
+	margin-bottom: 45px;
+}
+.img-prod{
+	height: 90%;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.img-prod img{
+	height: 100%;
+	width: 100%;
+}
+.textos-prod{
+	height: 10%;
+}
+.textos-prod h4{
+	font-size: 20px;
+}
+.galeria-prod .img-prod img{
+	max-width: 100%;
+	transition: transform 2s;
+}
+.galeria-prod .img-prod:hover img{
+	transform: scale(1.2);
+}
+.galeria-prod .img-prod .details{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	bottom: 10px;
+	right: 10px;
+	background: rgba(0,0,0,.8);
+	transform: scaleY(0);
+	transition: transform .5s;
+}
+.galeria-prod .img-prod:hover .details{
+	transform: scaleY(1);
+}
+.galeria-prod .img-prod .details .content{
+	position: absolute;
+	transform: : translateY(-50%);
+	text-align: center;
+	padding: 15px;
+	color: #fff;
+}
+.galeria-prod .img-prod .details .content h2{
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	color: #ff0;
+}
+.galeria-prod .img-prod .details .content p{
+	margin: 10px 0 0;
+	padding: 0;
+	color: white;
+}
+/*Contacto*/
+#contacto{
+	background-color: black;
+	overflow: hidden;
+}
+/*Footer*/
+footer{
+	background: url(../img/contact.jpg);
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
+}
+
+.marca-logo{
+  width: 40%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.marca-logo img{
+  width: 100%;
+}
+.iconos{
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  width: 100%;
+}
+.fab{
+  font-size:60px;
+  color: #FFF;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+footer p{
+  margin-top:10px;
+}
+.label{
+	color:white;
+	float: left;
+}
+
+@media screen and (max-width: 700px){
+	.nav2{
+		color: #fff;
+	}
+	.icono{
+		display: block;
+		cursor: pointer;
+	}
+	nav ul li {
+  		display: block;
+	}
+	.enlaces{
+		position: fixed;
+		top: 90px;
+		background: #2c3e50;
+		left: 0px;
+		height: 100%;
+		transition: 1s;
+		width: 0;
+		overflow: hidden;
+	}
+	.enlaces a{
+		display: inline-block;
+		width: 100%;
+		height: 50px;
+		padding: 20px;
+		text-align: center;
+		background: #34495e;
+		color: #fff;
+	}
+	.textos>h1{
+		font-size: 60px;
+	}
+	.textos>h2{
+		font-size: 30px;
+	}
+	.content-card{
+		width: 48%;
+		margin-bottom: 60px;
+	}
+}
+
+@media screen and (max-width: 500px){
+
+  .content-card{
+    width: 90%;
+  }
+  .caja-servicios{
+    width: 90%;
+    margin-bottom: var(--margenes);
+  }
+  .cont-prod{
+    width: 85%;
+  }
+  .marca-logo{
+    width: 80%;
+  }
+  .iconos{
+    margin: auto;
+  }
+  .textos-prod{
+	height: 10%;
+  }
+  .testimonial .title{
+	font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 607px){
+	.textos-prod h4{
+		font-size: 13px;
+	}
+}
