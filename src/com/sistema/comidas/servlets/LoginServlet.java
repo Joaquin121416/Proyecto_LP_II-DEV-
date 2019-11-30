@@ -69,7 +69,7 @@ public class LoginServlet extends GenericoMB {
 
 				this.getUsuarioBean().setUsuario(p1);
 				this.getUsuarioBean().setClave(p2);
-
+				
 				respuesta = validarAcceso();
 				System.out.println(respuesta);
 				request.setAttribute("msg", mensaje);
@@ -82,9 +82,9 @@ public class LoginServlet extends GenericoMB {
 
 		} else if (opc.equalsIgnoreCase("sal")) {
 			System.out.println(opc);
-			HttpSession session = getRequest().getSession(false);
-			session.setAttribute("ID", null);
-			session.setAttribute("usuario", null);
+			
+			super.getSession().setAttribute("ID", null);
+			super.getSession().setAttribute("usuario", null);
 
 
 			request.getRequestDispatcher("/Login.jsp").forward(request, response);

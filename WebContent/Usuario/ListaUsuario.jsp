@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="LibTag" prefix="tag"%>
 <%@page import="java.util.List"%>
-<%@page import="com.sistema.comidas.bean.InsumosBean"%>
-<%@page import="com.sistema.comidas.util.WraperInsumos"  %>
+<%@page import="com.sistema.comidas.bean.CategoriaProductoBean"%>
+<%@page import="com.sistema.comidas.util.Wrapper"  %>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <div id="right-panel" class="right-panel">
 	<jsp:include page="/Cabecera.jsp" />
@@ -22,29 +22,23 @@
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<strong>Lista de Insumos</strong>
+									<strong>Lista Usuarios</strong>
 								</div>
-								<form action="/LP_2_Sistema_Venta_3.0/InsumoServlet"
+								<form action="/LP_2_Sistema_Venta_3.0/UsuarioServlet"
 										enctype="multipart/form-data">
 									<div class="card-body">
 									
 									
-									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/InsumoServlet" class="table" name="${lista}" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
+									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/UsuarioServlet" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.wrapper.UsuarioWrapper">
 										
-										<display:column title="" property="imagen2" ></display:column>
-            							<display:column title="" property="nombreycod"></display:column>
-            							<display:column title="" property="idprod"></display:column>
-            							<display:column title="" property="descripcion"></display:column>
-            							<display:column title="" property="predad" ></display:column>
-            							<display:column title="" property="selecciona" ></display:column>
-            						
-            							
-            							
-            							
-
-
-
-
+										<display:column title="Codigo" property="usuario_id" ></display:column>
+            							<display:column title="Nombre" property="nombre"></display:column>
+            							<display:column title="Apellido" property="apellido"></display:column>
+            							<display:column title="Usuario" property="usuario"></display:column>
+            							<display:column title="Tipo de Doc." property="tipoDoc"></display:column>
+            							<display:column title="Num Doc." property="usu_doc"></display:column>
+            							<display:column title="Actualizar" property="seleccionaUsuario"></display:column>
+            							<display:column title="Eliminar" property="eliminaUsuario"></display:column>           	           							           							
 									</display:table>
 									
 									</div>
@@ -52,7 +46,7 @@
 							
 									<div class="card-footer">
 										<button class="btn btn-primary btn-sm" name="opc" value="lis">
-											<i class="fa fa-dot-circle-o"></i> Listar 
+											<i class="fa fa-dot-circle-o"></i> Listar
 										</button>
 										<button type="reset" class="btn btn-danger btn-sm">
 											<i class="fa fa-ban"></i> Cancelar

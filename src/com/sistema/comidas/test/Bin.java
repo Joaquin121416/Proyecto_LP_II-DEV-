@@ -25,4 +25,18 @@ public class Bin {
 		
 	}		
 	
+	public static String ImgCastBlob(File img) {
+		 String encodedImage = null;
+		try {
+		     BufferedImage image = ImageIO.read(new File(img.getAbsolutePath()));
+		     ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		     ImageIO.write(image, "png", baos);
+		     encodedImage = Base64.encode(baos.toByteArray());
+		   } catch (Exception e) {
+		     e.printStackTrace();
+		   }
+		return encodedImage;
+		
+	}		
+	
 }

@@ -1,23 +1,27 @@
 package com.sistema.comidas.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sistema.comidas.bean.CategoriaProductoBean;
+import com.sistema.comidas.bean.UsuarioBean;
 import com.sistema.comidas.dao.CategoriaDAO;
+import com.sistema.comidas.dao.UsuarioDAO;
 import com.sistema.comidas.dao.factory.Factory;
+import com.sistema.comidas.presentacion.GenericoMB;
+import com.sistema.comidas.util.Net;
 
 /**
  * Servlet implementation class UsuarioServlet
  */
 @WebServlet("/UsuarioServlet")
-public class UsuarioServlet extends HttpServlet {
+public class UsuarioServlet extends GenericoMB {
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -47,27 +51,51 @@ public class UsuarioServlet extends HttpServlet {
 		String url;
 		// entradas
 		String nombre = (request.getParameter("nom"));
-		String descripcion = (request.getParameter("des"));
+		String rol = request.getParameter("rol");
+		String usu = request.getParameter("usu");
+		String tipDoc = request.getParameter("tipDoc");
+		String ape = request.getParameter("ape");
+		String img = request.getParameter("img");
+		String pwd = request.getParameter("pwd");
+		String doc = request.getParameter("doc");
+		String audIp = Net.getClientIPAddres(request);
 		// procesos
-
-		CategoriaProductoBean cat = new CategoriaProductoBean(0, nombre, descripcion, null);
+		File file = new File(img);
+		UsuarioBean user = new UsuarioBean();
+		user.setNombre(nombre);
+		user.setApellido(ape);
+		user.setUsuario(usu);
+		user.setUsu_img(file);
+		user.setClave(pwd);
+		user.setTip_doc_id(Integer.parseInt(tipDoc));
+		user.setUsu_rol_id(Integer.parseInt(rol));
+		user.setUsuario_id(0);
+		if (doc.isEmpty() || doc.equals("")) {
+			url = "Usuario/AgregarUsuarioMenu.jsp";
+			request.setAttribute("mensaje", "Ingrese El numero de Documento");
+			request.getRequestDispatcher(url).forward(request, response);			
+		}else {
+		user.setUsu_doc(Integer.parseInt(doc));
+		user.setAud_ip(audIp);
 
 		// llamar al Factory para insertar
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
-		CategoriaDAO dao = bd.getCategoriaDAO();
-		int res = dao.agregarCategoria(cat);
+		UsuarioDAO dao = bd.getUsuarioDAO();
+		int res = dao.agregarUsuario(user);
+		System.err.println(res);
 		if (res == 0) {
 			mensaje = "no se pudo insertar el registro";
-			url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			url = "Usuario/AgregarUsuarioMenu.jsp";
 		} else {
 			mensaje = "categoria añadida";
-			url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			url = "Usuario/AgregarUsuarioMenu.jsp";
 		}
 
 		// salidas
+		
 		request.setAttribute("mensaje", mensaje);
 		request.getRequestDispatcher(url).forward(request, response);
-
+		}
 	}
 
 	protected void listarUsuario(HttpServletRequest request, HttpServletResponse response)
@@ -82,16 +110,16 @@ public class UsuarioServlet extends HttpServlet {
 
 		// llamar al Factory para insertar
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
-		CategoriaDAO dao = bd.getCategoriaDAO();
-		ArrayList<CategoriaProductoBean> lis;
-		lis = dao.listarCategoria();
+		UsuarioDAO dao = bd.getUsuarioDAO();
+		ArrayList<UsuarioBean> lis;
+		lis = dao.listarUsuario();
 
 		if (lis.isEmpty()) {
 			mensaje = "no se encontraron datos";
-			url = "CategoriasProductos/ListaCategoriaMenu.jsp";
+			url = "Usuario/ListaUsuarioMenu.jsp";
 		} else {
 			mensaje = "";
-			url = "CategoriasProductos/ListaCategoriaMenu.jsp";
+			url = "Usuario/ListaUsuarioMenu.jsp";
 		}
 
 		// salidas
@@ -108,15 +136,21 @@ public class UsuarioServlet extends HttpServlet {
 		String id = String.valueOf(request.getParameter("codigo"));
 		int cod = Integer.parseInt(id);
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
-		CategoriaDAO dao = bd.getCategoriaDAO();
-		CategoriaProductoBean cat;
-		cat = dao.listarByID(cod);
+		UsuarioDAO dao = bd.getUsuarioDAO();
+		UsuarioBean usuario;
+		usuario = dao.listarByID(cod);
 
-		String url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
+		String url = "Usuario/ModificarUsuarioMenu.jsp";
 		// salidas
-		request.setAttribute("cod", cat.getCat_pro_id());
-		request.setAttribute("nom", cat.getCat_pro_nom());
-		request.setAttribute("des", cat.getCat_pro_des());
+		request.setAttribute("cod", usuario.getUsuario_id());
+		request.setAttribute("nom", usuario.getNombre());
+		request.setAttribute("ape", usuario.getApellido());
+		request.setAttribute("docIde", usuario.getUsu_doc());
+		request.setAttribute("usu", usuario.getUsuario());
+		request.setAttribute("val", usuario.getTip_doc_id());
+		request.setAttribute("rol", usuario.getUsu_rol_id());
+		
+		
 		request.getRequestDispatcher(url).forward(request, response);
 
 	}

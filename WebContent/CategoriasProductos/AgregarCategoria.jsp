@@ -22,10 +22,11 @@
 									<strong>Agregar Categoria</strong>
 								</div>
 								<form action="/LP_2_Sistema_Venta_3.0/CategoriaServlet"
-									enctype="multipart/form-data">
+									enctype="multipart/form-data"
+									class="form-horizontal">
 									<div class="card-body card-block">
 
-										<class="form-horizontal">
+										
 										<div class="row form-group">
 											<div class="col col-md-3">
 												<label class=" form-control-label">Codigo :</label>

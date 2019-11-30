@@ -62,10 +62,10 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarUsuarioMenu.jsp">AÃ±adir Usuario
+								href="/LP_2_Sistema_Venta_3.0/Usuario/AgregarUsuarioMenu.jsp">Añadir Usuario
 							</a></li>
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Usuario/ListarUsuarioMenu.jsp">Listar Usuario
+								href="/LP_2_Sistema_Venta_3.0/UsuarioServlet?opc=lis">Listar Usuario
 							</a></li>
 						</ul></li>
 					<li class="menu-item-has-children dropdown"><a href="#"

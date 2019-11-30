@@ -9,7 +9,7 @@ public class MainEncrypt {
 	
 	public static void main(String args[]) throws GeneralSecurityException, IOException{
 	
-		String clave="abc";
+		String clave="Nicolas1212";
 		Encrypt.init("C1b3rT3c");
 		System.out.println(Encrypt.encrypt(clave));
 		//System.out.println(Encrypt.decrypt("KhcE1Gejlz0="));
