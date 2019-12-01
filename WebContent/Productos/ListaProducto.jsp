@@ -92,4 +92,5 @@
 		</footer>
 		<!-- /.site-footer -->
 	</div>
+>>>>>>> 8bb335294bf900a52e7fb0045110c690017c89ba
 	<!-- /#right-panel -->
