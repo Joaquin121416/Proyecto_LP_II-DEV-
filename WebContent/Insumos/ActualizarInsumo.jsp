@@ -45,7 +45,7 @@
                                         <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtPrecio" placeholder="obligatorio" class="form-control" value="${INS_PRE}"></div>
                                     </div>
 									<div class="card-footer">
-										<button class="btn btn-primary btn-sm" name="opc" value="agr">
+										<button class="btn btn-primary btn-sm" name="opc" value="act">
 											<i class="fa fa-dot-circle-o"></i> Actualizar 
 										</button>
 										<button type="reset" class="btn btn-danger btn-sm">
