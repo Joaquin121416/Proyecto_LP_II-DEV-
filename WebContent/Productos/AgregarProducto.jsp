@@ -20,11 +20,11 @@
                                 <strong>Agregar Producto</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="/LP_2_Sistema_Venta_3.0/crudProducto"  enctype="multipart/form-data" class="form-horizontal">
+                                <form action="crudProducto"  enctype="multipart/form-data" class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label class=" form-control-label">Codigo :</label></div>
                                         <div class="col-12 col-md-9">
-                                            <p class="form-control-static">Autogenerado</p>
+                                            <p class="form-control-static"><tools:tagCodigos campo="PRO_ID" tabla="TB_PRODUCTO"></tools:tagCodigos></p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label" >Precio :</label></div>
-                                        <div class="col-12 col-md-9"><input type="number" id="text-input" name="txtPrecio" placeholder="obligatorio" class="form-control" required></div>
+                                        <div class="col-12 col-md-9"><input type="number" step="0.01" id="text-input" name="txtPrecio" placeholder="obligatorio" class="form-control" required></div>
                                     </div>
                                    <div class="row form-group">
                                         <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Categoria</label></div>
