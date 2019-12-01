@@ -213,34 +213,16 @@ public class ProductoServlet extends GenericoMB {
 					
 				}else {
 					url = "Productos/AgregarProductoMenu.jsp";
-					request.setAttribute("cod", p.getPRO_ID());
-					request.setAttribute("nom", p.getPRO_NOM());
-					request.setAttribute("des", p.getPRO_DES());
-					request.setAttribute("pre", p.getPRO_PRE());
-					request.setAttribute("est", p.getPRO_EST());
-					request.setAttribute("cat", p.getCAT_PRO_ID());
 					request.setAttribute("msg", "Ingrese una categoria");
 					request.getRequestDispatcher(url).forward(request, response);
 				}
 			}else {
 				url = "Productos/AgregarProductoMenu.jsp";
-				request.setAttribute("cod", p.getPRO_ID());
-				request.setAttribute("nom", p.getPRO_NOM());
-				request.setAttribute("des", p.getPRO_DES());
-				request.setAttribute("pre", p.getPRO_PRE());
-				request.setAttribute("est", p.getPRO_EST());
-				request.setAttribute("cat", p.getCAT_PRO_ID());
 				request.setAttribute("msg", "Ingrese una descripcion correcta");
 				request.getRequestDispatcher(url).forward(request, response);
 			}
 		}else {
 			url = "Productos/AgregarProductoMenu.jsp";
-			request.setAttribute("cod", p.getPRO_ID());
-			request.setAttribute("nom", p.getPRO_NOM());
-			request.setAttribute("des", p.getPRO_DES());
-			request.setAttribute("pre", p.getPRO_PRE());
-			request.setAttribute("est", p.getPRO_EST());
-			request.setAttribute("cat", p.getCAT_PRO_ID());
 			request.setAttribute("msg", "Ingrese un nombre correcto");
 			request.getRequestDispatcher(url).forward(request, response);
 		}
