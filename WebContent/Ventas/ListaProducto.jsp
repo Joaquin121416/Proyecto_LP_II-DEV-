@@ -22,23 +22,25 @@
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<strong>Lista Usuarios</strong>
+									<strong>Realizar Venta de Productos</strong>
 								</div>
-								<form action="/LP_2_Sistema_Venta_3.0/UsuarioServlet"
+								<form action="/LP_2_Sistema_Venta_3.0/crudProducto"
 										enctype="multipart/form-data">
 									<div class="card-body">
 									
 									
-									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/UsuarioServlet" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.wrapper.UsuarioWrapper" >
+									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/crudProducto" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
 										
-										<display:column title="Codigo" property="usuario_id" sortable="true"></display:column>
-            							<display:column title="Nombre" property="nombre" sortable="true"></display:column>
-            							<display:column title="Apellido" property="apellido" sortable="true"></display:column>
-            							<display:column title="Usuario" property="usuario"></display:column>
-            							<display:column title="Tipo de Doc." property="tipoDoc" sortable="true"></display:column>
-            							<display:column title="Num Doc." property="usu_doc" sortable="true"></display:column>
-            							<display:column title="Actualizar" property="seleccionaUsuario" ></display:column>
-            							<display:column title="Eliminar" property="eliminaUsuario"></display:column>           	           							           							
+										<display:column title="Codigo" property="PRO_ID" ></display:column>
+            							<display:column title="Nombre" property="PRO_NOM"></display:column>
+            							<display:column title="Descripcion" property="PRO_DES"></display:column>
+            							<display:column title="Precio" property="PRO_PRE"></display:column>
+            							<display:column title="Estado" property="PRO_EST" ></display:column>
+            							<display:column title="Imagen" property="PRO_IMG" ></display:column>
+            							<display:column title="Categoria" property="CAT_PRO_ID" ></display:column>
+            							<display:column title="Actualizar" property="seleccionaProducto"></display:column>
+            							<display:column title="Eliminar" property="eliminaProducto" ></display:column>
+
 									</display:table>
 									
 									</div>

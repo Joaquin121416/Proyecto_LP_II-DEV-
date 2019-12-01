@@ -34,11 +34,30 @@ public class InsumoServlet extends GenericoMB {
 		}
 	}
 	
-	private void eliminarInsumo(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
-	}
+	private void eliminarInsumo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = "";
+		String mensaje = "";
 
+		int cod = Integer.parseInt(request.getParameter("codigo"));
+
+		Factory fabrica = Factory.getTipo(Factory.TIPO_MYSQL);
+		InsumosDAO dao = fabrica.getInsumoDAO();
+		InsumosBean p = new InsumosBean();
+		p.setINS_ID(cod);
+		int ok = dao.eliminarInsumo(p);
+
+		if (ok == 0) {
+			mensaje = "Error al eliminar";
+			url = "Insumos/ListaInsumoMenu.jsp";
+		} else {
+			mensaje = "Insumo " + p.getINS_NOM() + " eliminado";
+			url = "Insumos/ListaInsumoMenu.jsp";
+		}
+		
+		request.setAttribute("msg", mensaje);
+		request.getRequestDispatcher(url).forward(request, response);
+
+	}
 	private void actualizarInsumo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 			String id = String.valueOf(request.getParameter("codigo"));
