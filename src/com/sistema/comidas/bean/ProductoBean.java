@@ -4,7 +4,7 @@ public class ProductoBean {
 	private int PRO_ID;
 	private String PRO_NOM;
 	private String PRO_DES;
-	private double PRO_PRE;
+	private String PRO_PRE;
 	private String PRO_EST;
 	private String PRO_IMG;
 	private int CAT_PRO_ID;
@@ -31,10 +31,10 @@ public class ProductoBean {
 	public void setPRO_DES(String pRO_DES) {
 		PRO_DES = pRO_DES;
 	}
-	public double getPRO_PRE() {
+	public String getPRO_PRE() {
 		return PRO_PRE;
 	}
-	public void setPRO_PRE(double pRO_PRE) {
+	public void setPRO_PRE(String pRO_PRE) {
 		PRO_PRE = pRO_PRE;
 	}
 	public String getPRO_EST() {

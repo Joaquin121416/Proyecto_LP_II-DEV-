@@ -61,7 +61,7 @@ public class VentaServlet extends GenericoMB {
 		String nom = request.getParameter("txtNombre");
 		String des = request.getParameter("txtDescripcion");
 		String est= request.getParameter("txtEstado");
-		double pre = Double.parseDouble(request.getParameter("txtPrecio"));
+		String pre = request.getParameter("txtPrecio");
 		int cat = Integer.parseInt(request.getParameter("cboCategoria"));
 
 		p = new ProductoBean();
@@ -137,12 +137,12 @@ public class VentaServlet extends GenericoMB {
 		String mensaje, url;
 		String PRO_NOM;
 		String PRO_DES;
-		double PRO_PRE;
+		String PRO_PRE;
 		int CAT_PRO_ID;
 
 		PRO_NOM = request.getParameter("txtNombre");
 		PRO_DES = request.getParameter("txtDescripcion");
-		PRO_PRE = Double.parseDouble(request.getParameter("txtPrecio"));
+		PRO_PRE = request.getParameter("txtPrecio");
 		CAT_PRO_ID = Integer.parseInt(request.getParameter("cboCategoria"));
 
 		ProductoBean p = new ProductoBean();

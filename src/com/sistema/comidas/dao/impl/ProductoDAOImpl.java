@@ -30,7 +30,7 @@ public class ProductoDAOImpl implements ProductoDAO{
 				p.setPRO_ID(rs.getInt(1));
 				p.setPRO_NOM(rs.getString(2));
 				p.setPRO_DES(rs.getString(3));
-				p.setPRO_PRE(rs.getDouble(4));
+				p.setPRO_PRE(rs.getString(4));
 				p.setPRO_EST(rs.getString(5));
 				p.setPRO_IMG(rs.getString(6));
 				p.setCAT_PRO_ID(rs.getInt(7));
@@ -72,7 +72,7 @@ public class ProductoDAOImpl implements ProductoDAO{
 			
 			pst.setString(1, p.getPRO_NOM());
 			pst.setString(2, p.getPRO_DES());
-			pst.setDouble(3, p.getPRO_PRE());
+			pst.setDouble(3, Double.parseDouble(p.getPRO_PRE()));
 			pst.setInt(4, p.getCAT_PRO_ID());
 
 			rs = pst.executeUpdate();
@@ -106,7 +106,7 @@ public class ProductoDAOImpl implements ProductoDAO{
 			pst = con.prepareStatement(sql);
 			pst.setString(1, p.getPRO_NOM());
 			pst.setString(2, p.getPRO_DES());
-			pst.setDouble(3, p.getPRO_PRE());
+			pst.setDouble(3, Double.parseDouble(p.getPRO_PRE()));
 			pst.setString(4, p.getPRO_EST());
 			pst.setInt(5, p.getCAT_PRO_ID());
 			pst.setInt(6, p.getPRO_ID());
@@ -174,7 +174,7 @@ public class ProductoDAOImpl implements ProductoDAO{
 				pro.setPRO_ID(rs.getInt(1));
 				pro.setPRO_NOM(rs.getString(2));
 				pro.setPRO_DES(rs.getString(3));
-				pro.setPRO_PRE(rs.getDouble(4));
+				pro.setPRO_PRE(rs.getString(4));
 				pro.setPRO_EST(rs.getString(5));
 				pro.setCAT_PRO_ID(rs.getInt(6));
 				return pro;
