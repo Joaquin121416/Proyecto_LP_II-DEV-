@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <html lang="en">
 <head>
 <title>Logis &mdash; Onepage Website Template by
@@ -1337,33 +1337,16 @@
 								<div class="tab-pane fade" id="pedido" role="tabpanel"
 									aria-labelledby="pedido-tab">
 									<!--GENERADO SEGUN EL PRODUCTO-->
-									<form action="" method="">
-										<div class="card" style="width: 25rem;">
-											<img src="resources/img/Ejemplo.png"
-												class="card-img-top" alt="...">
-											<div class="card-header">
-												<p class="card-text">Codigo del producto : ---</p>
-												<p class="card-text">Nombre del producto : ---</p>
-												<p class="card-text">Descripcion : ---</p>
-												<textarea class="form-control"
-													placeholder="Ingresa una descripcion adicional"></textarea>
-												<br>
-												<div class="input-group">
-													<input placeholder="Ingresa la cantidad" type="number"
-														class="form-control"
-														aria-label="Dollar amount (with dot and two decimal places)">
-													<div class="input-group-append">
-														<span class="input-group-text">S/.</span> <span
-															class="input-group-text">9.99</span>
-													</div>
-												</div>
-											</div>
-											<div class="card-body">
-												<button submit="" class="btn btn-primary">Agregar</button> <button
-													class="btn btn-secondary">Cancelar</button>
-											</div>
-										</div>
-									</form>
+									<div class="container">
+										<%--  muestra la tyabla usando la etiqueta display --%>
+										<display:table name="${listaProducto}" class="table" export="true" pagesize="10" >
+										<%--personalizar campos --%>
+										<display:column property="" title="Codigo"></display:column>
+										<display:column property="" title="Nombre"></display:column>
+										<display:column property="" title="Descripcion"></display:column>
+									    <display:column property="" title="Precio"></display:column>
+										</display:table>
+									</div>
 								
 
 								</div>

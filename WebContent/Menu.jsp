@@ -37,7 +37,7 @@
 							<li><i class="menu-icon fa fa-map-o"></i><a href=".jsp">Lista
 									de Clientes</a></li>
 							<li><i class="menu-icon fa fa-street-view"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Clientes/AgregarClienteMenu.jsp">AÃ±adir
+								href="/LP_2_Sistema_Venta_3.0/Clientes/AgregarClienteMenu.jsp">Añadir
 									Cliente</a></li>
 						</ul></li>
 
@@ -48,7 +48,7 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-table"></i><a
-								href="/LP_2_Sistema_Venta_3.0/Productos/AgregarProductoMenu.jsp">AÃ±adir Producto
+								href="/LP_2_Sistema_Venta_3.0/Productos/AgregarProductoMenu.jsp">Añadir Producto
 							</a></li>
 							<li><i class="fa fa-table"></i><a
 								href="crudProducto?opc=lis">Listar Producto
