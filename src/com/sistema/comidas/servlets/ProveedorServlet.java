@@ -76,6 +76,9 @@ public class ProveedorServlet extends GenericoMB {
 		p.setPROV_NOM(nombre);
 		
 		//estos pueden votar error
+		
+		
+		//en serio te demoraste para esto
 		p.setPROV_COD_RUC(Integer.parseInt(ruc));
 		p.setPROV_NUM_TEL(Integer.parseInt(telefono));
 		p.setPROV_ESTADO(Integer.parseInt(est));
