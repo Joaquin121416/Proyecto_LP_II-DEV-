@@ -3,4 +3,4 @@
 /baseDeDatos/
 /.project/
 /.classpath/
-/.build.*/
+build/
