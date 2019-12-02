@@ -2,6 +2,7 @@ package com.sistema.comidas.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.context.annotation.Scope;
 
+import com.sistema.comidas.bean.DetalleVentaBean;
 import com.sistema.comidas.bean.UsuarioBean;
 import com.sistema.comidas.presentacion.GenericoMB;
 import com.sistema.comidas.util.Encrypt;
@@ -63,7 +65,7 @@ public class LoginServlet extends GenericoMB {
 			System.out.println("ingresar");
 			String respuesta = null;
 			try (PrintWriter pw = response.getWriter()) {
-
+				
 				String p1 = request.getParameter("txtuser");
 				String p2 = request.getParameter("txtpwd");
 
@@ -74,7 +76,7 @@ public class LoginServlet extends GenericoMB {
 				System.out.println(respuesta);
 				request.setAttribute("msg", mensaje);
 				request.getRequestDispatcher("" + respuesta).forward(request, response);
-
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				e.getMessage();
@@ -85,10 +87,8 @@ public class LoginServlet extends GenericoMB {
 			
 			super.getSession().setAttribute("ID", null);
 			super.getSession().setAttribute("usuario", null);
-
-
-			request.getRequestDispatcher("/Login.jsp").forward(request, response);
-
+			super.getSession().invalidate();
+			request.getRequestDispatcher("/Login.jsp").forward(request, response);			
 		}
 
 	}
@@ -120,8 +120,17 @@ public class LoginServlet extends GenericoMB {
 						if (oUsuario.getUsuario() != null && oUsuario.getClave() != null) {
 							System.out.println("user no vacio");
 							HttpSession session = getRequest().getSession(true);
-							session.setAttribute("ID", session.getId());
-							session.setAttribute("usuario", oUsuario);
+							super.setSession(session);
+							super.getSession().setAttribute("ID",super.getSession().getId());
+							super.getSession().setAttribute("usuario",oUsuario);
+							ArrayList<DetalleVentaBean> carro = new ArrayList<DetalleVentaBean>();
+							int cantidadDeProducto = 0;
+							double SubTotal = 0;
+							double Total = 0;
+							super.getSession().setAttribute("carro", carro);
+							super.getSession().setAttribute("cantidadDeProducto", cantidadDeProducto);
+							super.getSession().setAttribute("cantidadDeProducto", SubTotal);
+							super.getSession().setAttribute("cantidadDeProducto", Total);
 							page = "MenuPrincipal.jsp";
 						} else {
 							

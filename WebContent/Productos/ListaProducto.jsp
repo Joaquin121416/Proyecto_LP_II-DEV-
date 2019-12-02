@@ -36,7 +36,7 @@
             							<display:column title="Descripcion" property="PRO_DES"></display:column>
             							<display:column title="Precio" property="PRO_PRE"></display:column>
             							<display:column title="Estado" property="PRO_EST" ></display:column>
-            							<display:column title="Imagen" property="PRO_IMG" ></display:column>
+            							<display:column title="Imagen" property="img" ></display:column>
             							<display:column title="Categoria" property="CAT_PRO_ID" ></display:column>
             							<display:column title="Actualizar" property="seleccionaProducto"></display:column>
             							<display:column title="Eliminar" property="eliminaProducto" ></display:column>
@@ -92,5 +92,5 @@
 		</footer>
 		<!-- /.site-footer -->
 	</div>
->>>>>>> 8bb335294bf900a52e7fb0045110c690017c89ba
+
 	<!-- /#right-panel -->

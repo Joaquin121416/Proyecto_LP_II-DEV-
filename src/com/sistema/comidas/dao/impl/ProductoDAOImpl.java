@@ -21,7 +21,7 @@ public class ProductoDAOImpl implements ProductoDAO{
 		PreparedStatement pst = null;
 		try {
 			con = new MySQLConexion().getConexion();
-			String sql = "select * from TB_PRODUCTO";
+			String sql = "select * from TB_PRODUCTO where PRO_EST='1'";
 
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
@@ -193,6 +193,42 @@ public class ProductoDAOImpl implements ProductoDAO{
 			}
 		}
 		return pro;
+	}
+
+	@Override
+	public ArrayList<ProductoBean> listarProductosVenta() {
+		ArrayList<ProductoBean> lista = new ArrayList<ProductoBean>();
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			con = new MySQLConexion().getConexion();
+			String sql = "select PRO_ID,PRO_NOM,PRO_IMG from TB_PRODUCTO where PRO_EST='1';";
+
+			pst = con.prepareStatement(sql);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				ProductoBean p = new ProductoBean();
+				p.setPRO_ID(rs.getInt(1));
+				p.setPRO_NOM(rs.getString(2));
+				p.setPRO_IMG(rs.getString(3));
+				lista.add(p);
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
 	}
 
 }

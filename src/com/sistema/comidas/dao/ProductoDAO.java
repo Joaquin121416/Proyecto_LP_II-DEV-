@@ -10,4 +10,5 @@ public interface ProductoDAO {
 	public int registrarProducto(ProductoBean p);
 	public int actualizarProducto(ProductoBean p);
 	public int eliminarProducto(ProductoBean p);
+	public ArrayList<ProductoBean> listarProductosVenta();
 }

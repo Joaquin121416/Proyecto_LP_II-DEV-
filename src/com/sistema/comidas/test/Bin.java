@@ -14,7 +14,7 @@ public class Bin {
 	
 	public static void main(String[] args) {
 		try {
-		     BufferedImage image = ImageIO.read(new File("E:\\Juegos_Icon.png"));
+		     BufferedImage image = ImageIO.read(new File("E:\\images.jpg"));
 		     ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		     ImageIO.write(image, "png", baos);
 		     String encodedImage = Base64.encode(baos.toByteArray());

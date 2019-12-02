@@ -50,7 +50,13 @@ public class Wrapper extends TableDecorator{
 		return selecciona;
 		
 	}
-	
+	public String getImg() {
+		ProductoBean  obj = (ProductoBean) getCurrentRowObject();
+		
+		String img ="<img src=\"data:image/png;base64, "+obj.getPRO_IMG() +" \" alt=\"Producto\" width=\"100\" height=\"100\">";
+		return img;
+		
+	}
 
 	
 }

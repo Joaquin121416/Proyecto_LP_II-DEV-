@@ -19,13 +19,13 @@ import com.sistema.comidas.presentacion.GenericoMB;
 /**
  * Servlet implementation class ProductoServlet
  */
-@WebServlet(name = "crudProducto", urlPatterns = { "/crudProducto" })
+@WebServlet(name = "VentaServlet", urlPatterns = { "/VentaServlet" })
 public class VentaServlet extends GenericoMB {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Entro al servlet Producto");
+		System.out.println("Entro al servlet VentaServlet");
 		String opc = request.getParameter("opc");
 		switch (opc) {
 		case "lis":
@@ -36,6 +36,9 @@ public class VentaServlet extends GenericoMB {
 			break;
 		case "reg":
 			registrarProducto(request, response);
+			break;
+		case "ven":
+			agregarProducto(request, response);
 			break;
 		case "act1":
 			actualizarProducto1(request, response);
@@ -49,130 +52,72 @@ public class VentaServlet extends GenericoMB {
 		}
 	}
 
-	private void actualizarProducto2(HttpServletRequest request, HttpServletResponse response)
+	private void agregarProducto(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "";
-		String mensaje = "";
-		Factory fabrica = Factory.getTipo(Factory.TIPO_MYSQL);
-		ProductoDAO dao = fabrica.getProductoDAO();
-		ProductoBean p;
+		String cantidad = request.getParameter("can");
+		try {
+			int cantidadInt = Integer.parseInt(cantidad);
+			if ( cantidadInt == 0) {
+				String mensaje = "Introduzca una cantidad mayor de 0";
+				String url = "Ventas/ListaProductoVentaMenu.jsp";
+				request.setAttribute("mensaje", mensaje);
+				request.getRequestDispatcher(url).forward(request, response);
+			} else {
+				// variables
+				String mensaje = null;
+				String url = null;
+				// entradas
 
-		int codi = Integer.parseInt(request.getParameter("txtCodigo"));
-		String nom = request.getParameter("txtNombre");
-		String des = request.getParameter("txtDescripcion");
-		String est= request.getParameter("txtEstado");
-		double pre = Double.parseDouble(request.getParameter("txtPrecio"));
-		int cat = Integer.parseInt(request.getParameter("cboCategoria"));
+				// procesos
+				
+				
+				super.getSession().getAttribute("carro");
+				super.getSession().getAttribute("cantidadDeProducto");
+				super.getSession().getAttribute("cantidadDeProducto");
+				super.getSession().getAttribute("cantidadDeProducto");
 
-		p = new ProductoBean();
-		p.setPRO_ID(codi);
-		p.setPRO_NOM(nom);
-		p.setPRO_DES(des);
-		p.setPRO_EST(est);
-		p.setCAT_PRO_ID(cat);
-		p.setPRO_PRE(pre);
+				// llamar al Factory para insertar
+				Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
+				ProductoDAO dao = bd.getProductoDAO();
+				ArrayList<ProductoBean> lis;
+				lis = dao.listarProductosVenta();
 
-		int ok = dao.actualizarProducto(p);
-		if (ok == 0) {
-			mensaje = "Error al actualziar";
-			url = "Productos/ListaProductoMenu.jsp";
-		} else {
-			mensaje = "Producto " + p.getPRO_NOM() + " actualizado";
-			url = "Productos/ListaProductoMenu.jsp";
+				if (lis.isEmpty()) {
+					mensaje = "no se encontraron datos";
+					url = "Ventas/ListaProductoVentaMenu.jsp";
+				} else {
+					mensaje = "";
+					url = "Ventas/ListaProductoVentaMenu.jsp";
+				}
+
+				// salidas
+				request.setAttribute("lista", lis);
+				request.setAttribute("mensaje", mensaje);
+				request.getRequestDispatcher(url).forward(request, response);
+
+			}
+		} catch (NumberFormatException e) {
+			String mensaje = "Introduzca una cantidad valida";
+			String url = "Ventas/ListaProductoVentaMenu.jsp";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
 		}
-		
-		request.setAttribute("msg", mensaje);
-		request.getRequestDispatcher(url).forward(request, response);
+
 	}
 
-	private void eliminarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "";
-		String mensaje = "";
+	private void actualizarProducto2(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {}
 
-		int cod = Integer.parseInt(request.getParameter("codigo"));
-
-		Factory fabrica = Factory.getTipo(Factory.TIPO_MYSQL);
-		ProductoDAO dao = fabrica.getProductoDAO();
-		ProductoBean p = new ProductoBean();
-		p.setPRO_ID(cod);
-		int ok = dao.eliminarProducto(p);
-
-		if (ok == 0) {
-			mensaje = "Error al eliminar";
-			url = "Productos/ListaProductoMenu.jsp";
-		} else {
-			mensaje = "Producto " + p.getPRO_NOM() + " eleminado";
-			url = "Productos/ListaProductoMenu.jsp";
-		}
-		
-		request.setAttribute("msg", mensaje);
-		request.getRequestDispatcher(url).forward(request, response);
-
-	}
+	private void eliminarProducto(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {}
 
 	private void actualizarProducto1(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String id = String.valueOf(request.getParameter("codigo"));
-		int cod = Integer.parseInt(id);
-		Factory fabrica = Factory.getTipo(Factory.TIPO_MYSQL);
-		ProductoDAO dao = fabrica.getProductoDAO();
-		ProductoBean pro;
-		pro = dao.listarByID(cod);
-
-		String url = "Productos/ActualizarProductoMenu.jsp";
-		// salidas
-		request.setAttribute("cod", pro.getPRO_ID());
-		request.setAttribute("nom", pro.getPRO_NOM());
-		request.setAttribute("des", pro.getPRO_DES());
-		request.setAttribute("pre", pro.getPRO_PRE());
-		request.setAttribute("est", pro.getPRO_EST());
-		request.setAttribute("cat", pro.getCAT_PRO_ID());
-		request.getRequestDispatcher(url).forward(request, response);
-
-	}
+			throws ServletException, IOException {}
 
 	private void registrarProducto(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("Entro a registrar");
-		String mensaje, url;
-		String PRO_NOM;
-		String PRO_DES;
-		double PRO_PRE;
-		int CAT_PRO_ID;
-
-		PRO_NOM = request.getParameter("txtNombre");
-		PRO_DES = request.getParameter("txtDescripcion");
-		PRO_PRE = Double.parseDouble(request.getParameter("txtPrecio"));
-		CAT_PRO_ID = Integer.parseInt(request.getParameter("cboCategoria"));
-
-		ProductoBean p = new ProductoBean();
-		p.setPRO_NOM(PRO_NOM);
-		p.setPRO_DES(PRO_DES);
-		p.setPRO_PRE(PRO_PRE);
-		p.setCAT_PRO_ID(CAT_PRO_ID);
-
-		Factory fabrica = Factory.getTipo(Factory.TIPO_MYSQL);
-
-		ProductoDAO dao = fabrica.getProductoDAO();
-		System.out.println(dao);
-		int ok = dao.registrarProducto(p);
-
-		System.out.println(ok);
-		if (ok == 0) {
-			mensaje = "Error al registrar";
-			url = "Productos/AgregarProductoMenu.jsp";
-		} else {
-			mensaje = "Producto " + p.getPRO_NOM() + " registrado";
-			url = "Productos/AgregarProductoMenu.jsp";
-		}
-
-		request.setAttribute("msg", mensaje);
-		request.getRequestDispatcher(url).forward(request, response);
-
-	}
+			throws ServletException, IOException {}
 
 	private void filtrarProducto(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -190,14 +135,14 @@ public class VentaServlet extends GenericoMB {
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
 		ProductoDAO dao = bd.getProductoDAO();
 		ArrayList<ProductoBean> lis;
-		lis = dao.listarProductos();
+		lis = dao.listarProductosVenta();
 
 		if (lis.isEmpty()) {
 			mensaje = "no se encontraron datos";
-			url = "Productos/ListaProductoMenu.jsp";
+			url = "Ventas/ListaProductoVentaMenu.jsp";
 		} else {
 			mensaje = "";
-			url = "Productos/ListaProductoMenu.jsp";
+			url = "Ventas/ListaProductoVentaMenu.jsp";
 		}
 
 		// salidas

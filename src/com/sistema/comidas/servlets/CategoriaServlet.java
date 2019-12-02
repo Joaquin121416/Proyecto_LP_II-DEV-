@@ -15,6 +15,7 @@ import com.sistema.comidas.dao.GenericoDAO;
 import com.sistema.comidas.dao.factory.Factory;
 import com.sistema.comidas.presentacion.GenericoMB;
 import com.sistema.comidas.util.Wrapper;
+
 /**
  * Servlet implementation class CategoriaServlet
  */
@@ -50,24 +51,46 @@ public class CategoriaServlet extends GenericoMB {
 		String nombre = (request.getParameter("nom"));
 		String descripcion = (request.getParameter("des"));
 		// procesos
-
-		CategoriaProductoBean cat = new CategoriaProductoBean(0, nombre, descripcion, null);
-
-		// llamar al Factory para insertar
-		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
-		CategoriaDAO dao = bd.getCategoriaDAO();
-		int res = dao.agregarCategoria(cat);
-		if (res == 0) {
-			mensaje = "no se pudo insertar el registro";
+		if (nombre.isEmpty() || nombre.equals("")) {
+			mensaje = "Ingrese el Nombre";
 			url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
+		} else if (nombre.length() < 5 || nombre.length() > 70) {
+			mensaje = "Ingrese un nombre que tenga entre 5 y 70 caracteres";
+			url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
+		} else if (descripcion.isEmpty() || descripcion.equals("")) {
+			mensaje = "Ingrese la descripcion ";
+			url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
+		} else if (descripcion.length() < 5 || descripcion.length() > 140) {
+			mensaje = "Ingrese una descripcion que tenga entre 5 y 140 caracteres";
+			url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
 		} else {
-			mensaje = "categoria añadida";
-			url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
-		}
 
-		// salidas
-		request.setAttribute("mensaje", mensaje);
-		request.getRequestDispatcher(url).forward(request, response);
+			CategoriaProductoBean cat = new CategoriaProductoBean(0, nombre, descripcion, null);
+
+			// llamar al Factory para insertar
+			Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
+			CategoriaDAO dao = bd.getCategoriaDAO();
+			int res = dao.agregarCategoria(cat);
+			if (res == 0) {
+				mensaje = "no se pudo insertar el registro";
+				url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			} else {
+				mensaje = "categoria añadida";
+				url = "CategoriasProductos/AgregarCategoriaMenu.jsp";
+			}
+
+			// salidas
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
+		}
 
 	}
 
@@ -102,10 +125,9 @@ public class CategoriaServlet extends GenericoMB {
 
 	}
 
-
 	protected void actualizar1(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		String id = String.valueOf(request.getParameter("codigo"));
 		int cod = Integer.parseInt(id);
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
@@ -124,7 +146,7 @@ public class CategoriaServlet extends GenericoMB {
 
 	protected void actualizar2(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		String mensaje = null;
 		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
 		CategoriaDAO dao = bd.getCategoriaDAO();
 		CategoriaProductoBean cat;
@@ -132,19 +154,53 @@ public class CategoriaServlet extends GenericoMB {
 		String des = (String) request.getParameter("des");
 		String url = "CategoriasProductos/ListaCategoriaMenu.jsp";
 		// salidas
-		String codi=(String) request.getParameter("cod");
-		int cod = Integer.parseInt(codi);
-		
-		
-		cat = new CategoriaProductoBean();
-		cat.setCat_pro_id(cod);
-		cat.setCat_pro_des(des);
-		cat.setCat_pro_nom(nom);
-		int res = dao.modificarCategoria(cat);
-		if (res != 0) {
+		String codi = (String) request.getParameter("cod");
+		if (nom.isEmpty() || nom.equals("")) {
+			mensaje = "Ingrese el Nombre";
+			url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
+			request.setAttribute("cod", codi);
+			request.setAttribute("mensaje", mensaje);
 			request.getRequestDispatcher(url).forward(request, response);
-		}else {
-			
+		} else if (nom.length() < 5 || nom.length() > 70) {
+			mensaje = "Ingrese un nombre que tenga entre 5 y 70 caracteres";
+			url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
+			request.setAttribute("cod", codi);
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
+		} else if (des.isEmpty() || des.equals("")) {
+			mensaje = "Ingrese la descripcion ";
+			request.setAttribute("cod", codi);
+			url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
+		} else if (des.length() < 5 || des.length() > 140) {
+			request.setAttribute("cod", codi);
+			mensaje = "Ingrese una descripcion que tenga entre 5 y 140 caracteres";
+			url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher(url).forward(request, response);
+		} else {
+			int cod = Integer.parseInt(codi);
+			cat = new CategoriaProductoBean();
+			cat.setCat_pro_id(cod);
+			cat.setCat_pro_des(des);
+			cat.setCat_pro_nom(nom);
+			int res = dao.modificarCategoria(cat);
+			if (res != 0) {
+				request.setAttribute("cod", codi);
+				request.setAttribute("nom", nom);
+				request.setAttribute("des", des);		
+				mensaje = "Se pudo actualizar el registro con exito";
+				request.setAttribute("mensaje", mensaje);
+				url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
+				request.getRequestDispatcher(url).forward(request, response);
+			} else {
+				request.setAttribute("cod", codi);
+				mensaje = "No se pudo actualizar el registro";
+				request.setAttribute("mensaje", mensaje);
+				url = "CategoriasProductos/ActualizarCategoriaMenu.jsp";
+				request.getRequestDispatcher(url).forward(request, response);
+			}
 		}
 
 	}
@@ -160,11 +216,10 @@ public class CategoriaServlet extends GenericoMB {
 		cat.setCat_pro_id(cod);
 		int res = dao.eliminarCategoria(cat);
 
-		String url = "CategoriasProductos/ListaCategoriaMenu.jsp";
+		String url = "CategoriaServlet?opc=lis";
 		// salidas
 		request.getRequestDispatcher(url).forward(request, response);
 
 	}
-
 
 }

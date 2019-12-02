@@ -92,7 +92,7 @@
 
 <body>
 	<jsp:include page="/Menu.jsp" />	
-	<jsp:include page="ListaProducto.jsp" />
+	<jsp:include page="ListaProductoVenta.jsp" />
 	
 	<!-- Scripts -->
 	<script
