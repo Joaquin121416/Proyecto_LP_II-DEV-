@@ -40,7 +40,7 @@
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="nom"
-													placeholder="obligatorio" class="form-control" value="${nom}">
+													placeholder="obligatorio" class="form-control" value="${nom}" required>
 											</div>
 										</div>
 										<div class="row form-group">
@@ -49,8 +49,8 @@
 													:</label>
 											</div>
 											<div class="col-12 col-md-9">
-												<input type="text" id="text-input" name="ape"
-													placeholder="obligatorio" class="form-control" value="${ape}">
+												<input type="text" id="text-input" name="txtape"
+													placeholder="obligatorio" class="form-control" value="${ape}" required>
 											</div>
 										</div>
 										<div class="row form-group">
@@ -59,7 +59,7 @@
 													de Documento :</label>
 											</div>
 											<div class="col-12 col-md-9">
-												<tag:tagDocumentos value="${val}"></tag:tagDocumentos>
+												<tag:tagDocumentos value="${val}" ></tag:tagDocumentos>
 											</div>
 										</div>
 										<div class="row form-group">
@@ -69,7 +69,7 @@
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="doc"
-													placeholder="obligatorio" class="form-control" value="${docIde}">
+													placeholder="obligatorio" class="form-control" value="${docIde}" required>
 											</div>
 										</div>
 										<div class="row form-group">
@@ -78,7 +78,7 @@
 													:</label>
 											</div>
 											<div class="col-12 col-md-9">
-												<tag:tagRoles value="${rol}"></tag:tagRoles>
+												<tag:tagRoles value="${rol}" ></tag:tagRoles>
 											</div>
 										</div>
 										<div class="row form-group">
@@ -88,7 +88,7 @@
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="email-input" name="usu"
-													placeholder="obligatorio" class="form-control" value="${usu}">
+													placeholder="obligatorio" class="form-control" value="${usu}" required>
 											</div>
 										</div>										
 									</div>

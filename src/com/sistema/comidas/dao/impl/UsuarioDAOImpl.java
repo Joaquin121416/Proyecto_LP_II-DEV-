@@ -25,7 +25,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		PreparedStatement pstm = null;
 		try {
 			conn = new MySQLConexion().getConexion();
-			String sql = "INSERT INTO TB_USUARIO  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?,SYSDATE(),?,1,'N',1,'Sesion01',sysdate(),?);";
+			String sql = "INSERT INTO TB_USUARIO  VALUES(NULL, ?, ?, ?, ?, ?, ?, ?,SYSDATE(),?,1,'N',1,'Sesion01',sysdate(),?)";
 
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, user.getNombre());
@@ -33,10 +33,10 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			pstm.setString(3, user.getUsuario());
 			pstm.setString(4, Encrypt.encrypt(user.getClave()));
 			pstm.setInt(5, user.getTip_doc_id());
-			pstm.setInt(6, user.getUsu_doc());
+			pstm.setInt(6, Integer.parseInt(user.getUsu_doc()));
 			pstm.setInt(7, user.getUsu_rol_id());
-			pstm.setString(3, Bin.ImgCastBlob(user.getUsu_img()));
-			pstm.setString(3, user.getAud_ip());
+			pstm.setString(8, Bin.ImgCastBlob(user.getUsu_img()));
+			pstm.setString(9, user.getAud_ip());
 			res = pstm.executeUpdate();
 
 		} catch (Exception e) {
@@ -76,7 +76,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 				user.setApellido(res.getString(3));
 				user.setUsuario(res.getString(4));
 				user.setTip_doc_id(res.getInt(5));
-				user.setUsu_doc(res.getInt(6));
+				user.setUsu_doc(res.getString(6));
 				user.setUsu_rol_id(res.getInt(7));
 				lista.add(user);
 			}
@@ -98,9 +98,37 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	}
 
 	@Override
-	public int modificarUsuario(UsuarioBean user) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int modificarUsuario(UsuarioBean u) {
+		int rs = 0;
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			con = new MySQLConexion().getConexion();
+			String sql = "update TB_USUARIO set USU_NOM=?,USU_APE=?,USU_USU=?, TIP_DOC_ID=?, USU_DOC_NUM=?,ROL_ID=? where USU_ID=?" ;
+
+			pst = con.prepareStatement(sql);
+			pst.setString(1, u.getNombre());
+			pst.setString(2, u.getApellido());
+			pst.setString(3, u.getUsuario());
+			pst.setInt(4, u.getTip_doc_id());
+			pst.setString(5, u.getUsu_doc());
+			pst.setInt(6, u.getUsu_rol_id());
+			pst.setInt(7, u.getUsuario_id());
+
+			rs = pst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return rs;
 	}
 
 	@Override
@@ -129,7 +157,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 				usuario.setApellido(res.getString(3));
 				usuario.setUsuario(res.getString(4));
 				usuario.setTip_doc_id(res.getInt(5));
-				usuario.setUsu_doc(res.getInt(6));
+				usuario.setUsu_doc(res.getString(6));
 				usuario.setUsu_rol_id(res.getInt(7));
 			}
 

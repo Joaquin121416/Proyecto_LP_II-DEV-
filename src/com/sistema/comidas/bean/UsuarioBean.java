@@ -16,7 +16,7 @@ public class UsuarioBean {
 	
 	private int tip_doc_id;
 	
-	private int usu_doc;
+	private String usu_doc;
 	
 	private int usu_rol_id;
 	
@@ -37,12 +37,12 @@ public class UsuarioBean {
 	private String aud_ip;
 	
 
-	public int getUsu_doc() {
+	public String getUsu_doc() {
 		return usu_doc;
 	}
 
 
-	public void setUsu_doc(int usu_doc) {
+	public void setUsu_doc(String usu_doc) {
 		this.usu_doc = usu_doc;
 	}
 
