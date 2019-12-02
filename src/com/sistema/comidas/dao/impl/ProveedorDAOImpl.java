@@ -63,15 +63,42 @@ public class ProveedorDAOImpl implements ProveedorDAO {
 		PreparedStatement pstm = null;
 		try {
 			conn = new MySQLConexion().getConexion();
-			String sql = "INSERT INTO TB_PROVEEDOR  VALUES (NULL,?,?,?,1,1,?,1,?,?);";
+			String sql = "INSERT INTO TB_PROVEEDOR  VALUES (NULL,?,?,?,1,1,1,1,1,1);";
 
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, pro.getPROV_NOM());
 			pstm.setInt(2,pro.getPROV_COD_RUC());
 			pstm.setInt(3,pro.getPROV_NUM_TEL());
-			pstm.setString(4,pro.getAUD_SESION());
-			pstm.setInt(5,pro.getAUD_FECHA());
-			pstm.setString(6,pro.getAUD_IP());
+			res = pstm.executeUpdate();
+			
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstm != null)
+					pstm.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return res;
+	}
+
+	@Override
+	public int modificarProveedor(ProveedorBean pro) {
+		int res = 0;
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		try {
+			conn = new MySQLConexion().getConexion();
+			String sql = "update TB_PROVEEDOR set PROV_NOM=? ,POV_NUM_TEL=?  where PROV_ID=?;";
+
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, pro.getPROV_NOM());
+			pstm.setInt(2,pro.getPROV_NUM_TEL());
 			res = pstm.executeUpdate();
 
 		} catch (Exception e) {
@@ -88,6 +115,34 @@ public class ProveedorDAOImpl implements ProveedorDAO {
 		}
 		return res;
 	}
-	
 
-}
+	@Override
+	public int eliminarProveedor(ProveedorBean pro) {
+		int res = 0;
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		try {
+			conn = new MySQLConexion().getConexion();
+			String sql = "update TB_PROVEEDOR set PROV_EST=0 where PROV_ID=? ;";
+
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1,pro.getPROV_ESTADO() );
+
+			res = pstm.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstm != null)
+					pstm.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return res;
+	}
+	}
+	

@@ -28,28 +28,24 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre :</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="obligatorio" class="form-control"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtNombre" placeholder="obligatorio" class="form-control"></div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label" >Apellido :</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="obligatorio" class="form-control"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtApellido" placeholder="obligatorio" class="form-control"></div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Numero de RUC:</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="obligatorio" class="form-control"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtRuc" placeholder="obligatorio" class="form-control"></div>
                                     </div>                            
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="email-input" class=" form-control-label">Telefono :</label></div>
-                                        <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="obligatorio" class="form-control"></div>
+                                        <div class="col-12 col-md-9"><input type="email" id="email-input" name="txtTelefono" placeholder="obligatorio" class="form-control"></div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="email-input" class=" form-control-label">estado :</label></div>
-                                        <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="obligatorio" class="form-control"></div>
-                                    </div>
-                                        <div class="row form-group">
-                                        <div class="col col-md-3"><label for="email-input" class=" form-control-label">estado2 :</label></div>
-                                        <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="obligatorio" class="form-control"></div>
-                                    </div>
+                                        <div class="col-12 col-md-9"><input type="email" id="email-input" name="txtEstado" placeholder="obligatorio" class="form-control"></div>
+                                   
                                       </div>
                                         <div class="row form-group">
                                         <div class="col col-md-3"><label for="email-input" class=" form-control-label">Tipo :</label></div>
@@ -75,7 +71,7 @@
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="password-input" class=" form-control-label">Correo :</label></div>
                                         <div class="col-12 col-md-9"><input type="password" id="password-input" name="password-input" placeholder="obligatorio" class="form-control"></div>
-                                    </div>                    
+                                    </div>                 
                                 </form>
                             </div>
                             <div class="card-footer">
