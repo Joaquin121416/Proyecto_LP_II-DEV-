@@ -8,7 +8,7 @@ public interface InsumosDAO {
 	
 	public int agregarInsumo(InsumosBean ins);
 	
-	public ArrayList<InsumosDAO>listarInsumos();
+	public ArrayList<InsumosBean>listarInsumos();
 
 	public int modificarInsumos(InsumosBean ins);
 	

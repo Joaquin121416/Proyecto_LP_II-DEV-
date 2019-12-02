@@ -10,9 +10,10 @@ import com.sistema.comidas.bean.InsumosBean;
 import com.sistema.comidas.bean.ProductoBean;
 import com.sistema.comidas.dao.InsumosDAO;
 import com.sistema.comidas.util.*;
+
 public class InsumosDAOImpl implements InsumosDAO {
 
-	public int  agregarInsumo(InsumosBean ins) {
+	public int agregarInsumo(InsumosBean ins) {
 		int rs = 0;
 		Connection con = null;
 		PreparedStatement pst = null;
@@ -22,7 +23,7 @@ public class InsumosDAOImpl implements InsumosDAO {
 			pst = con.prepareStatement(sql);
 			pst.setString(1, ins.getINS_NOM());
 			pst.setString(2, ins.getINS_DES());
-			pst.setDouble(3,ins.getINS_PRE());
+			pst.setDouble(3, ins.getINS_PRE());
 			rs = pst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,15 +39,16 @@ public class InsumosDAOImpl implements InsumosDAO {
 		}
 		return rs;
 	}
+
 	@Override
-	public ArrayList<InsumosDAO> listarInsumos(){
+	public ArrayList<InsumosBean> listarInsumos() {
 		ArrayList<InsumosBean> lista = new ArrayList<InsumosBean>();
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
 			con = new MySQLConexion().getConexion();
-			String sql = "select * from TB_INSUMO";
+			String sql = "select * from TB_INSUMO where INS_EST='1'";
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
 			while (rs.next()) {
@@ -56,7 +58,7 @@ public class InsumosDAOImpl implements InsumosDAO {
 				p.setINS_DES(rs.getString(3));
 				p.setINS_PRE(rs.getDouble(4));
 				lista.add(p);
-	}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -69,62 +71,64 @@ public class InsumosDAOImpl implements InsumosDAO {
 				e.printStackTrace();
 			}
 		}
-		return listarInsumos();
+		return lista;
 	}
 
 	public int modificarInsumos(InsumosBean ins) {
-		int rs=0;
-		Connection con =null;
-		PreparedStatement pst = null;
-		try {
-			con = new MySQLConexion().getConexion();
-			String sql = "update TB_INSUMO set INS_NOM=?, INS_DES = ?, INS_PRE = ? where INS_ID = ?;";
-			pst=con.prepareStatement(sql);
-			pst.setString(1, ins.getINS_NOM());
-			pst.setString(2, ins.getINS_DES());
-			pst.setDouble(3, ins.getINS_PRE());
-			
-			rs = pst.executeUpdate();				
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		try {
-			if (pst != null)
-				pst.close();
-			if (con != null)
-				con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	return rs;
-	
-}	
-    @Override
-	public int eliminarInsumo(InsumosBean ins) {
-        int rs=0; 
+		int rs = 0;
 		Connection con = null;
 		PreparedStatement pst = null;
 		try {
 			con = new MySQLConexion().getConexion();
-			String sql = "update TB_INSUMO set INS_EST = 1 where INS_ID = ?;";
+			String sql = "update TB_INSUMO set INS_NOM=?, INS_DES = ?, INS_PRE = ? where INS_ID = ?;";
 			pst = con.prepareStatement(sql);
-			pst.setInt(1,ins.getINS_ID());
-			rs=pst.executeUpdate();
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		try {
-			if (pst != null)
-				pst.close();
-			if (con != null)
-				con.close();
-		} catch (SQLException e) {
+			pst.setString(1, ins.getINS_NOM());
+			pst.setString(2, ins.getINS_DES());
+			pst.setDouble(3, ins.getINS_PRE());
+
+			rs = pst.executeUpdate();
+		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
+		return rs;
+
 	}
+
+	@Override
+	public int eliminarInsumo(InsumosBean ins) {
+		int rs = 0;
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			con = new MySQLConexion().getConexion();
+			String sql = "update TB_INSUMO set INS_EST = '0' where INS_ID = ?;";
+			pst = con.prepareStatement(sql);
+			pst.setInt(1, ins.getINS_ID());
+			rs = pst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pst != null)
+					pst.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return rs;
 	}
+
 	@Override
 	public InsumosBean listarByID(int id) {
 		InsumosBean ins = new InsumosBean();

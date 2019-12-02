@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.context.annotation.Scope;
 
 import com.sistema.comidas.bean.DetalleVentaBean;
+import com.sistema.comidas.bean.InsumosBean;
+import com.sistema.comidas.bean.ProductoBean;
 import com.sistema.comidas.bean.UsuarioBean;
 import com.sistema.comidas.presentacion.GenericoMB;
 import com.sistema.comidas.util.Encrypt;
@@ -85,8 +87,7 @@ public class LoginServlet extends GenericoMB {
 		} else if (opc.equalsIgnoreCase("sal")) {
 			System.out.println(opc);
 			
-			super.getSession().setAttribute("ID", null);
-			super.getSession().setAttribute("usuario", null);
+			
 			super.getSession().invalidate();
 			request.getRequestDispatcher("/Login.jsp").forward(request, response);			
 		}
@@ -124,13 +125,26 @@ public class LoginServlet extends GenericoMB {
 							super.getSession().setAttribute("ID",super.getSession().getId());
 							super.getSession().setAttribute("usuario",oUsuario);
 							ArrayList<DetalleVentaBean> carro = new ArrayList<DetalleVentaBean>();
+							ArrayList<ProductoBean> carroComprasTemporal = new ArrayList<ProductoBean>();
 							int cantidadDeProducto = 0;
 							double SubTotal = 0;
 							double Total = 0;
+							ArrayList<DetalleVentaBean> carroCompra = new ArrayList<DetalleVentaBean>();
+							ArrayList<InsumosBean> carroComprasTemporal2 = new ArrayList<InsumosBean>();
+							int cantidadDeInsumo = 0;
+							double SubTotalCompra = 0;
+							double TotalCompra = 0;
 							super.getSession().setAttribute("carro", carro);
+							super.getSession().setAttribute("carroCT", carroComprasTemporal);
 							super.getSession().setAttribute("cantidadDeProducto", cantidadDeProducto);
-							super.getSession().setAttribute("cantidadDeProducto", SubTotal);
-							super.getSession().setAttribute("cantidadDeProducto", Total);
+							super.getSession().setAttribute("subtotalVenta", SubTotal);
+							super.getSession().setAttribute("totalVenta", Total);
+							super.getSession().setAttribute("carroCompra", carroCompra);
+							super.getSession().setAttribute("carroCTC", carroComprasTemporal2);						
+							super.getSession().setAttribute("cantidadDeInsumo", cantidadDeInsumo);
+							super.getSession().setAttribute("subtotalCompra", SubTotalCompra);
+							super.getSession().setAttribute("totalCompra", TotalCompra);
+							super.getSession().setAttribute("codUsu", 1);
 							page = "MenuPrincipal.jsp";
 						} else {
 							

@@ -17,5 +17,14 @@ public interface GenericoDAO {
 	public String consultarTipoDoc(int id);
 	
 	public String consultarRolesNombre(int id);
-
+	
+	public int existe(int id , String Tb,String idTb);
+	
+	public String consultarCantidadVentas();
+	
+	public String consultarVentas();
+	
+	public String consultarCantidadCompras();
+	
+	public String consultarCompras();
 }

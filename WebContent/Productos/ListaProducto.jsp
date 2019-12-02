@@ -30,7 +30,7 @@
 									<div class="card-body">
 									
 									
-									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/crudProducto" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
+									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/crudProducto" class="table" name="${ listaProducto }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
 										
 										<display:column title="Codigo" property="PRO_ID" ></display:column>
             							<display:column title="Nombre" property="PRO_NOM"></display:column>

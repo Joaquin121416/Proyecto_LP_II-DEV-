@@ -6,6 +6,7 @@ import com.sistema.comidas.dao.InsumosDAO;
 import com.sistema.comidas.dao.ProductoDAO;
 import com.sistema.comidas.dao.ProveedorDAO;
 import com.sistema.comidas.dao.UsuarioDAO;
+import com.sistema.comidas.dao.VentaDAO;
 
 public abstract class Factory {
 
@@ -25,7 +26,6 @@ public abstract class Factory {
 	
 	public abstract ProductoDAO getProductoDAO();
 	
-	
 	public static Factory getTipo(int tipo) {
 		switch (tipo) {
 		case TIPO_MYSQL:
@@ -37,5 +37,7 @@ public abstract class Factory {
 
 		return null;
 	}
+
+	public abstract VentaDAO getVentaDAO();
 
 }

@@ -30,9 +30,9 @@ public class VentasWrapper extends TableDecorator{
 	public String getAgregar() {
 		ProductoBean  obj = (ProductoBean) getCurrentRowObject();
 		
-		String vender ="<button class=\"btn btn-primary btn-sm\" name=\"opc\" value=\"ven\">\r\n" + 
+		String vender ="<a class=\"btn btn-primary btn-sm\" href=\"/LP_2_Sistema_Venta_3.0/VentaServlet?opc=ven&codigo="+ obj.getPRO_ID()+"\" value=\"\" >\r\n" + 
 				"											<i class=\"fa fa-dot-circle-o\"></i> Agregar\r\n" + 
-				"										</button>";
+				"										</a>";		
 		return vender;
 		
 	}

@@ -19,12 +19,11 @@
 					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="menu-icon fa fa-usd"></i><a
-								href="/LP_2_Sistema_Venta_3.0/VentaServlet?opc=lis">Venta
-									Fisica</a></li>
+								href="/LP_2_Sistema_Venta_3.0/VentaServlet?opc=lis">Venta de Productos
+									</a></li>
 							<li><i class="menu-icon fa fa-credit-card"></i><a
-								href="page-register.html">Venta Tarjeta</a></li>
-							<li><i class="menu-icon fa fa-bicycle"></i><a
-								href="pages-forget.html">Venta Delivery</a></li>
+								href="/LP_2_Sistema_Venta_3.0/CompraServlet?opc=lis">Compra de Insumos</a></li>
+						
 						</ul></li>
 					<li class="menu-title">Mantenimiento</li>
 
@@ -114,32 +113,12 @@
 
 					<li class="menu-title">Reportes</li>
 					<!-- /.menu-title -->
-					<li class="menu-item-has-children dropdown"><a href="#"> <i
-							class="menu-icon fa fa-list-alt"></i>Ventas
+					<li class="menu-item-has-children dropdown"><a href="/LP_2_Sistema_Venta_3.0/Reportes/ReporteProductoVentaMenu.jsp"> <i
+							class="menu-icon fa fa-list-alt">  </i>Ventas
 					</a></li>
-					<li class="menu-item-has-children dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false"> <i
-							class="menu-icon fa fa-list-alt"></i>Compras
-					</a>
-						<ul class="sub-menu children dropdown-menu">
-							<li><i class="fa fa-table"></i><a href="tables-basic.html">Basic
-									Table</a></li>
-							<li><i class="fa fa-table"></i><a href="tables-data.html">Data
-									Table</a></li>
-						</ul></li>
-					<li class="menu-item-has-children dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false"> <i
-							class="menu-icon fa fa-list-alt"></i>Ingresos e Egresos
-					</a>
-						<ul class="sub-menu children dropdown-menu">
-							<li><i class="menu-icon fa fa-th"></i><a
-								href="forms-basic.html">Basic Form</a></li>
-							<li><i class="menu-icon fa fa-th"></i><a
-								href="forms-advanced.html">Advanced Form</a></li>
-						</ul></li>
-
+					<li class="menu-item-has-children dropdown"><a href="/LP_2_Sistema_Venta_3.0/Reportes/ReporteInsumoCompraMenu.jsp"> <i
+							class="menu-icon fa fa-list-alt">  </i>Compras
+					</a></li>
 					<li class="menu-title">Consultas</li>
 					<!-- /.menu-title -->
 

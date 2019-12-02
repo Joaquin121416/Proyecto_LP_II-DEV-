@@ -5,7 +5,9 @@
 <%@page import="com.sistema.comidas.bean.CategoriaProductoBean"%>
 <%@page import="com.sistema.comidas.util.Wrapper"%>
 <%@ taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@ taglib uri="LibTag" prefix="tag"%>
 <div id="right-panel" class="right-panel">
+
 	<jsp:include page="/Cabecera.jsp" />
 	<!-- Content -->
 	<div class="content">
@@ -36,8 +38,8 @@
 											decorator="com.sistema.comidas.wrapper.VentasWrapper">
 											<display:column title="Codigo" property="PRO_ID"></display:column>
 											<display:column title="Nombre" property="PRO_NOM"></display:column>
+											<display:column title="Precio" property="PRO_PRE"></display:column>	
 											<display:column title="Imagen" property="img"></display:column>
-											<display:column title="Cantidad" property="cantidad"></display:column>
 											<display:column title="Agregar" property="agregar"></display:column>
 										</display:table>
 
@@ -69,10 +71,11 @@
 
 										<display:table clearStatus="" summary=""
 											requestURI="/LP_2_Sistema_Venta_3.0/VentaServlet"
-											class="table" name="${ lista }" pagesize="10" export="false"
-											decorator="com.sistema.comidas.wrapper.VentasWrapper">
-											<display:column title="Codigo" property="PRO_ID"></display:column>
+											class="table" name="${ carroCT }" pagesize="10" export="false"
+											decorator="com.sistema.comidas.wrapper.VentasWrapper" >
+											<display:column title="Codigo" property="PRO_ID" ></display:column>											
 											<display:column title="Nombre" property="PRO_NOM"></display:column>
+											<display:column title="Precio" property="PRO_PRE"></display:column>
 											<display:column title="Imagen" property="img"></display:column>
 										</display:table>
 
@@ -83,7 +86,7 @@
 											de Pedido :</label>
 									</div>
 									<div class="col-12 col-md-8">
-										<p>${mensaje}</p>
+										<tag:tagCodigos tabla="TB_DOCUMENTO_DE_VENTA" campo="DOC_VEN_ID"></tag:tagCodigos>
 									</div>
 									<br>
 									<div class="col col-md-4">
@@ -91,7 +94,7 @@
 											:</label>
 									</div>
 									<div class="col-12 col-md-8">
-										<p>${mensaje}</p>
+										<p>${subtotalVenta}</p>
 									</div>
 									<br>
 									<div class="col col-md-4">
@@ -99,18 +102,26 @@
 											:</label>
 									</div>
 									<div class="col-12 col-md-8">
-										<p>${mensaje}</p>
+										<p>${totalVenta}</p>
+									</div>
+									<div class="col col-md-4">
+										<label for="text-input" class=" form-control-label">Cliente
+											:</label>
+									</div>
+									<div class="col-12 col-md-8">
+										<input type="text" id="text-input" name="clicod"
+													placeholder="0" class="form-control" value="0">
 									</div>
 
 									<div class="card-footer">
-										<button class="btn btn-primary btn-sm" name="opc" value="lis">
-											<i class="fa fa-dot-circle-o"></i> Listar
+										<button class="btn btn-primary btn-sm" name="opc" value="reaven">
+											<i class="fa fa-dot-circle-o"></i> Vender
 										</button>
-										<button type="reset" class="btn btn-danger btn-sm">
+										<button  class="btn btn-danger btn-sm" name="opc" value="lim">
 											<i class="fa fa-ban"></i> Limpiar
 										</button>
 										<br> <br>
-										<p></p>
+										<p>${mensaje}</p>
 									</div>
 
 								</form>

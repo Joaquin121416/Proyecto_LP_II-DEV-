@@ -31,11 +31,11 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			pstm.setString(1, user.getNombre());
 			pstm.setString(2, user.getApellido());
 			pstm.setString(3, user.getUsuario());
-			pstm.setString(4, Encrypt.encrypt(user.getClave()));
+			pstm.setString(4, user.getClave());
 			pstm.setInt(5, user.getTip_doc_id());
 			pstm.setInt(6, Integer.parseInt(user.getUsu_doc()));
 			pstm.setInt(7, user.getUsu_rol_id());
-			pstm.setString(8, Bin.ImgCastBlob(user.getUsu_img()));
+			pstm.setString(8, user.getUsu_img());
 			pstm.setString(9, user.getAud_ip());
 			res = pstm.executeUpdate();
 

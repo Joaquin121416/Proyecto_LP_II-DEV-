@@ -6,13 +6,15 @@ import com.sistema.comidas.dao.InsumosDAO;
 import com.sistema.comidas.dao.ProductoDAO;
 import com.sistema.comidas.dao.ProveedorDAO;
 import com.sistema.comidas.dao.UsuarioDAO;
+import com.sistema.comidas.dao.VentaDAO;
+import com.sistema.comidas.dao.impl.UsuarioDAOImpl;
 
 public class SqlServerFactory extends Factory {
 
 	@Override
 	public UsuarioDAO getUsuarioDAO() {
 
-		return null;
+		return new UsuarioDAOImpl();
 	}
 
 	@Override
@@ -41,6 +43,12 @@ public class SqlServerFactory extends Factory {
 
 	@Override
 	public ProductoDAO getProductoDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VentaDAO getVentaDAO() {
 		// TODO Auto-generated method stub
 		return null;
 	}

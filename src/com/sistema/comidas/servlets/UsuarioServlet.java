@@ -2,6 +2,7 @@ package com.sistema.comidas.servlets;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,9 @@ import com.sistema.comidas.dao.CategoriaDAO;
 import com.sistema.comidas.dao.UsuarioDAO;
 import com.sistema.comidas.dao.factory.Factory;
 import com.sistema.comidas.presentacion.GenericoMB;
+import com.sistema.comidas.test.Bin;
+import com.sistema.comidas.test.ImgBin;
+import com.sistema.comidas.util.Encrypt;
 import com.sistema.comidas.util.Net;
 
 import sun.invoke.empty.Empty;
@@ -34,7 +38,12 @@ public class UsuarioServlet extends GenericoMB {
 		if (opc.equals("lis")) {
 			listarUsuario(request, response);
 		} else if (opc.equals("agr")) {
-			agregarUsuario(request, response);
+			try {
+				agregarUsuario(request, response);
+			} catch (GeneralSecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else if (opc.equals("act1")) {
 			actualizar1(request, response);
 		} else if (opc.equals("eli")) {
@@ -46,7 +55,7 @@ public class UsuarioServlet extends GenericoMB {
 	}
 	
 	protected void agregarUsuario(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException, GeneralSecurityException {
 
 		// variables
 		String mensaje = null;
@@ -57,19 +66,24 @@ public class UsuarioServlet extends GenericoMB {
 		String usu = request.getParameter("usu");
 		String tipDoc = request.getParameter("tipDoc");
 		String ape = request.getParameter("ape");
-		String img = request.getParameter("img");
+		String img =  request.getParameter("img"); 
 		String pwd = request.getParameter("pwd");
 		String doc = request.getParameter("doc");
 		String audIp = Net.getClientIPAddres(request);
 		// procesos
-		File file = new File(img);
+		File file = new File("E://"+img);
 		
 		UsuarioBean user = new UsuarioBean();
 		user.setNombre(nombre);
 		user.setApellido(ape);
 		user.setUsuario(usu);
-		user.setUsu_img(file);
-		user.setClave(pwd);
+		try {
+			user.setUsu_img(Bin.ImgCastBlob(file));
+		} catch (Exception e) {
+			user.setUsu_img(null);
+		}
+		Encrypt.init("C1b3rT3c");
+		user.setClave(Encrypt.encrypt(pwd));
 		user.setTip_doc_id(Integer.parseInt(tipDoc));
 		user.setUsu_rol_id(Integer.parseInt(rol));
 		user.setUsuario_id(0);

@@ -22,7 +22,7 @@
 									<strong>Agregar Usuario</strong>
 								</div>
 								<form action="/LP_2_Sistema_Venta_3.0/UsuarioServlet"
-									enctype="multipart/form-data"
+									enctype="application/x-www-form-urlencoded"
 									class="form-horizontal">
 									<div class="card-body card-block">
 
@@ -88,8 +88,8 @@
 													Imagen :</label>
 											</div>
 											<div class="col-12 col-md-9">
-												<input type="file" id="file-input" name="img"
-													class="form-control-file">
+												<input type="file" id="file-input" name="img"  value="Upload"
+													class="form-control-file"  formenctype="application/x-www-form-urlencoded">
 											</div>
 										</div>
 										<div class="row form-group">

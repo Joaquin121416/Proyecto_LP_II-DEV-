@@ -22,7 +22,7 @@ public class UsuarioBean {
 	
 	private Date usu_fec_con;
 	
-	private File usu_img;
+	private String usu_img;
 	
 	private String usuario_est;
 	
@@ -153,12 +153,12 @@ public class UsuarioBean {
 
 
 
-	public File getUsu_img() {
+	public String getUsu_img() {
 		return usu_img;
 	}
 
 
-	public void setUsu_img(File usu_img) {
+	public void setUsu_img(String usu_img) {
 		this.usu_img = usu_img;
 	}
 

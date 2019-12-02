@@ -1,5 +1,6 @@
 package com.sistema.comidas.dao.impl;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -81,7 +82,7 @@ public class GenericoDAOImpl implements GenericoDAO {
 
 	@Override
 	public ArrayList<TipoDeDocumentoBean> consultarTipoDeDocumento() {
-		ArrayList<TipoDeDocumentoBean> ListDocBean = new  ArrayList<TipoDeDocumentoBean>();
+		ArrayList<TipoDeDocumentoBean> ListDocBean = new ArrayList<TipoDeDocumentoBean>();
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -126,7 +127,7 @@ public class GenericoDAOImpl implements GenericoDAO {
 			pstm.setInt(1, id);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				tipoDoc= rs.getString(1);		
+				tipoDoc = rs.getString(1);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -142,7 +143,7 @@ public class GenericoDAOImpl implements GenericoDAO {
 			}
 		}
 		return tipoDoc;
-	
+
 	}
 
 	@Override
@@ -159,7 +160,7 @@ public class GenericoDAOImpl implements GenericoDAO {
 			pstm.setInt(1, id);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				rol= rs.getString(1);		
+				rol = rs.getString(1);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -175,7 +176,131 @@ public class GenericoDAOImpl implements GenericoDAO {
 			}
 		}
 		return rol;
-	
+
+	}
+
+	@Override
+	public int existe(int id, String Tb, String idTb) {
+
+		int num = 0;
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		try {
+			conn = new MySQLConexion().getConexion();
+			String sql = "select * from " + Tb + " where  " + idTb + " = " + id + ";";
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				num++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstm != null)
+					pstm.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return num;
+
+	}
+
+	@Override
+	public String consultarCantidadVentas() {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int ventas = 0;
+		conn = new MySQLConexion().getConexion();
+		String sql = "select count(DOC_VEN_ID) from TB_DOCUMENTO_DE_VENTA;";
+		try {
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				ventas = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return String.valueOf(ventas);
+	}
+
+	@Override
+	public String consultarVentas() {
+
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		BigDecimal ventas = null;
+		conn = new MySQLConexion().getConexion();
+		String sql = "	select sum(DET_DOC_VEN_NETO) from TB_DETALLE_DE_DOCUMENTO_VENTA;";
+		try {
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				ventas = rs.getBigDecimal(1);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return ventas.toString();
+
+	}
+
+	@Override
+	public String consultarCantidadCompras() {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int ventas = 0;
+		conn = new MySQLConexion().getConexion();
+		String sql = "select count(DOC_COM_ID) from TB_DOCUMENTO_COMPRA;";
+		try {
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				ventas = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return String.valueOf(ventas);
+	}
+
+	@Override
+	public String consultarCompras() {
+
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		BigDecimal ventas = null;
+		conn = new MySQLConexion().getConexion();
+		String sql = "	select sum(DET_DOC_COM_NETO) from TB_DETALLE_DE_DOCUMENTO_COMPRA;";
+		try {
+			pstm = conn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				ventas = rs.getBigDecimal(1);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return ventas.toString();
+
 	}
 
 }
