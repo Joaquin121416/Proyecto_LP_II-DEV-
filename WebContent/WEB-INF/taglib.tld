@@ -5,7 +5,7 @@
 <taglib>
 	<tlibversion>1.0</tlibversion>
 	<jspversion>2.0</jspversion>
-	<shortname></shortname>
+	<shortname>tools</shortname>
 	<uri>LibTag</uri><!-- Alias de la libreria de Tag -->
 
 	<!-- Se registran las etiquetas -->
@@ -54,13 +54,15 @@
 		<tagclass>com.sistema.comidas.util.Wrapper</tagclass>
 	</tag>
 
-	<!-- TAG DEL MODAL DE LOS PRODUCTOS -->
+	<!-- TAG categoria productos -->
 	<tag>
-		<name>tagModal</name>
-		<tagclass>com.sistema.comidas.tags.ModalTag</tagclass>
+		<name>CBOCategorias</name>
+		<tagclass>com.sistema.comidas.tags.CBOCategoriasTag</tagclass>
 		<bodycontent>empty</bodycontent>
-		<info>Muestra el modal de los productos</info>
+		<info>Muestra la categorias de los productos</info>
 	</tag>
+	
+	
 
 </taglib>
 

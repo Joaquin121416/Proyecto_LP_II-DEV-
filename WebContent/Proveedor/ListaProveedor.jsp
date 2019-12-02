@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="LibTag" prefix="tag"%>
@@ -23,25 +22,24 @@
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<strong>Lista Productos</strong>
+									<strong>Lista Proveedor</strong>
 								</div>
-								<form action="/LP_2_Sistema_Venta_3.0/crudProducto"
+								<form action="/LP_2_Sistema_Venta_3.0/ProveedorServlet"
 										enctype="multipart/form-data">
 									<div class="card-body">
 									
 									
-									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/crudProducto" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
+									<display:table  clearStatus="" summary="" requestURI="/LP_2_Sistema_Venta_3.0/ProveedorServlet" class="table" name="${ lista }" pagesize="10" export="false" decorator="com.sistema.comidas.util.Wrapper">
 										
-										<display:column title="Codigo" property="PRO_ID" ></display:column>
-            							<display:column title="Nombre" property="PRO_NOM"></display:column>
-            							<display:column title="Descripcion" property="PRO_DES"></display:column>
-            							<display:column title="Precio" property="PRO_PRE"></display:column>
-            							<display:column title="Estado" property="PRO_EST" ></display:column>
-            							<display:column title="Imagen" property="img" ></display:column>
-            							<display:column title="Categoria" property="CAT_PRO_ID" ></display:column>
-            							<display:column title="Actualizar" property="seleccionaProducto"></display:column>
-            							<display:column title="Eliminar" property="eliminaProducto" ></display:column>
-
+										<display:column title="Codigo" property="PROV_ID" ></display:column>
+            							<display:column title="Nombre" property="PROV_NOM"></display:column>
+            							<display:column title="Telefono" property="PROV_NUM_TEL"></display:column>
+            							<display:column title="Codigo SESION" property="AUD_SESION" ></display:column>
+            							<display:column title="Fecha" property="AUD_FECHA"></display:column>
+            							<display:column title="Codigo de Auditoria" property="AUD_IP"></display:column>
+            							<display:column title="Actualizar" property="seleccionaCategoria"></display:column>
+            							<display:column title="Eliminar" property="eliminaCategoria" ></display:column>
+            							
 									</display:table>
 									
 									</div>
@@ -93,5 +91,4 @@
 		</footer>
 		<!-- /.site-footer -->
 	</div>
-
 	<!-- /#right-panel -->

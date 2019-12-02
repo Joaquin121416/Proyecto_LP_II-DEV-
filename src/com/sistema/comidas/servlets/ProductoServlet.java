@@ -16,6 +16,8 @@ import com.sistema.comidas.dao.ProductoDAO;
 import com.sistema.comidas.dao.factory.Factory;
 import com.sistema.comidas.presentacion.GenericoMB;
 
+import sun.invoke.empty.Empty;
+
 /**
  * Servlet implementation class ProductoServlet
  */
@@ -55,34 +57,87 @@ public class ProductoServlet extends GenericoMB {
 		String mensaje = "";
 		Factory fabrica = Factory.getTipo(Factory.TIPO_MYSQL);
 		ProductoDAO dao = fabrica.getProductoDAO();
-		ProductoBean p;
-
+		String pre = request.getParameter("txtPrecio");
 		int codi = Integer.parseInt(request.getParameter("txtCodigo"));
 		String nom = request.getParameter("txtNombre");
 		String des = request.getParameter("txtDescripcion");
 		String est= request.getParameter("txtEstado");
-		double pre = Double.parseDouble(request.getParameter("txtPrecio"));
 		int cat = Integer.parseInt(request.getParameter("cboCategoria"));
-
-		p = new ProductoBean();
+		
+		ProductoBean p = new ProductoBean();
 		p.setPRO_ID(codi);
 		p.setPRO_NOM(nom);
 		p.setPRO_DES(des);
 		p.setPRO_EST(est);
 		p.setCAT_PRO_ID(cat);
 		p.setPRO_PRE(pre);
-
-		int ok = dao.actualizarProducto(p);
-		if (ok == 0) {
-			mensaje = "Error al actualziar";
-			url = "Productos/ListaProductoMenu.jsp";
-		} else {
-			mensaje = "Producto " + p.getPRO_NOM() + " actualizado";
-			url = "Productos/ListaProductoMenu.jsp";
+		
+		if(pre.matches("\\d+(\\.\\d{1,2})?") ) {
+			
+			if(nom.matches("[a-zA-Z]{3,120}") || nom != "" ) {
+				if(des.matches("[a-zA-Z]{3,160}") || des != "" ) {
+					if(cat>=1 ) {
+						
+							int ok = dao.actualizarProducto(p);
+							if (ok == 0) {
+								mensaje = "Error al actualziar";
+								url = "Productos/ListaProductoMenu.jsp";
+							} else {
+								mensaje = "Producto " + p.getPRO_NOM() + " actualizado";
+								url = "Productos/ListaProductoMenu.jsp";
+							}
+							
+							request.setAttribute("msg", mensaje);
+							request.getRequestDispatcher(url).forward(request, response);
+					
+					}else {
+						url = "Productos/ActualizarProductoMenu.jsp";
+						request.setAttribute("cod", p.getPRO_ID());
+						request.setAttribute("nom", p.getPRO_NOM());
+						request.setAttribute("des", p.getPRO_DES());
+						request.setAttribute("pre", p.getPRO_PRE());
+						request.setAttribute("est", p.getPRO_EST());
+						request.setAttribute("cat", p.getCAT_PRO_ID());
+						request.setAttribute("msg", "Ingrese una categoria");
+						request.getRequestDispatcher(url).forward(request, response);
+					}
+				}else {
+					url = "Productos/ActualizarProductoMenu.jsp";
+					request.setAttribute("cod", p.getPRO_ID());
+					request.setAttribute("nom", p.getPRO_NOM());
+					request.setAttribute("des", p.getPRO_DES());
+					request.setAttribute("pre", p.getPRO_PRE());
+					request.setAttribute("est", p.getPRO_EST());
+					request.setAttribute("cat", p.getCAT_PRO_ID());
+					request.setAttribute("msg", "Ingrese una descripcion correcta");
+					request.getRequestDispatcher(url).forward(request, response);
+				}
+			}else {
+				url = "Productos/ActualizarProductoMenu.jsp";
+				request.setAttribute("cod", p.getPRO_ID());
+				request.setAttribute("nom", p.getPRO_NOM());
+				request.setAttribute("des", p.getPRO_DES());
+				request.setAttribute("pre", p.getPRO_PRE());
+				request.setAttribute("est", p.getPRO_EST());
+				request.setAttribute("cat", p.getCAT_PRO_ID());
+				request.setAttribute("msg", "Ingrese un nombre correcto");
+				request.getRequestDispatcher(url).forward(request, response);
+			}
+		}else {
+			url = "Productos/ActualizarProductoMenu.jsp";
+			request.setAttribute("cod", p.getPRO_ID());
+			request.setAttribute("nom", p.getPRO_NOM());
+			request.setAttribute("des", p.getPRO_DES());
+			request.setAttribute("pre", p.getPRO_PRE());
+			request.setAttribute("est", p.getPRO_EST());
+			request.setAttribute("cat", p.getCAT_PRO_ID());
+			request.setAttribute("msg", "Ingrese precio con formato xxx.00");
+			request.getRequestDispatcher(url).forward(request, response);
 		}
 		
-		request.setAttribute("msg", mensaje);
-		request.getRequestDispatcher(url).forward(request, response);
+		
+		
+		
 	}
 
 	private void eliminarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -134,40 +189,88 @@ public class ProductoServlet extends GenericoMB {
 	private void registrarProducto(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("Entro a registrar");
-		String mensaje, url;
-		String PRO_NOM;
-		String PRO_DES;
-		double PRO_PRE;
-		int CAT_PRO_ID;
-
-		PRO_NOM = request.getParameter("txtNombre");
-		PRO_DES = request.getParameter("txtDescripcion");
-		PRO_PRE = Double.parseDouble(request.getParameter("txtPrecio"));
-		CAT_PRO_ID = Integer.parseInt(request.getParameter("cboCategoria"));
-
-		ProductoBean p = new ProductoBean();
-		p.setPRO_NOM(PRO_NOM);
-		p.setPRO_DES(PRO_DES);
-		p.setPRO_PRE(PRO_PRE);
-		p.setCAT_PRO_ID(CAT_PRO_ID);
-
+		String url = "";
+		String mensaje = "";
 		Factory fabrica = Factory.getTipo(Factory.TIPO_MYSQL);
-
 		ProductoDAO dao = fabrica.getProductoDAO();
-		System.out.println(dao);
-		int ok = dao.registrarProducto(p);
-
-		System.out.println(ok);
-		if (ok == 0) {
-			mensaje = "Error al registrar";
+		String pre = request.getParameter("txtPrecio");
+		int codi = 0;
+		String nom = request.getParameter("txtNombre");
+		String des = request.getParameter("txtDescripcion");
+		int cat = Integer.parseInt(request.getParameter("cboCategoria"));
+		
+		ProductoBean p = new ProductoBean();
+		p.setPRO_ID(codi);
+		p.setPRO_NOM(nom);
+		p.setPRO_DES(des);
+		p.setCAT_PRO_ID(cat);
+		p.setPRO_PRE(pre);
+		
+		if(pre.matches("\\d+(\\.\\d{1,2})?")) {
+			
+			if(nom.matches("[a-zA-Z]{3,120}")|| nom != "" ) {
+				if(des.matches("[a-zA-Z]{3,160}") || des != "" ) {
+					if(cat>=1 ) {
+						
+							int ok = dao.registrarProducto(p);
+							if (ok == 0) {
+								mensaje = "Error al registrar";
+								url = "Productos/AgregarProductoMenu.jsp";
+							} else {
+								mensaje = "Producto " + p.getPRO_NOM() + " agregado";
+								url = "Productos/AgregarProductoMenu.jsp";
+							}
+							
+							request.setAttribute("msg", mensaje);
+							request.getRequestDispatcher(url).forward(request, response);
+					
+					}else {
+						url = "Productos/AgregarProductoMenu.jsp";
+						request.setAttribute("cod", p.getPRO_ID());
+						request.setAttribute("nom", p.getPRO_NOM());
+						request.setAttribute("des", p.getPRO_DES());
+						request.setAttribute("pre", p.getPRO_PRE());
+						request.setAttribute("est", p.getPRO_EST());
+						request.setAttribute("cat", p.getCAT_PRO_ID());
+						request.setAttribute("msg", "Ingrese una categoria");
+						request.getRequestDispatcher(url).forward(request, response);
+					}
+				}else {
+					url = "Productos/AgregarProductoMenu.jsp";
+					request.setAttribute("cod", p.getPRO_ID());
+					request.setAttribute("nom", p.getPRO_NOM());
+					request.setAttribute("des", p.getPRO_DES());
+					request.setAttribute("pre", p.getPRO_PRE());
+					request.setAttribute("est", p.getPRO_EST());
+					request.setAttribute("cat", p.getCAT_PRO_ID());
+					request.setAttribute("msg", "Ingrese una descripcion correcta");
+					request.getRequestDispatcher(url).forward(request, response);
+				}
+			}else {
+				url = "Productos/AgregarProductoMenu.jsp";
+				request.setAttribute("cod", p.getPRO_ID());
+				request.setAttribute("nom", p.getPRO_NOM());
+				request.setAttribute("des", p.getPRO_DES());
+				request.setAttribute("pre", p.getPRO_PRE());
+				request.setAttribute("est", p.getPRO_EST());
+				request.setAttribute("cat", p.getCAT_PRO_ID());
+				request.setAttribute("msg", "Ingrese un nombre correcto");
+				request.getRequestDispatcher(url).forward(request, response);
+			}
+		}else {
 			url = "Productos/AgregarProductoMenu.jsp";
-		} else {
-			mensaje = "Producto " + p.getPRO_NOM() + " registrado";
-			url = "Productos/AgregarProductoMenu.jsp";
+			request.setAttribute("cod", p.getPRO_ID());
+			request.setAttribute("nom", p.getPRO_NOM());
+			request.setAttribute("des", p.getPRO_DES());
+			request.setAttribute("pre", p.getPRO_PRE());
+			request.setAttribute("est", p.getPRO_EST());
+			request.setAttribute("cat", p.getCAT_PRO_ID());
+			request.setAttribute("msg", "Ingrese precio con formato xxx.00");
+			request.getRequestDispatcher(url).forward(request, response);
 		}
-
-		request.setAttribute("msg", mensaje);
-		request.getRequestDispatcher(url).forward(request, response);
+		
+		
+		
 
 	}
 
@@ -201,7 +304,7 @@ public class ProductoServlet extends GenericoMB {
 		}
 
 		// salidas
-		request.setAttribute("lista", lis);
+		request.setAttribute("listaProducto", lis);
 		request.setAttribute("mensaje", mensaje);
 		request.getRequestDispatcher(url).forward(request, response);
 

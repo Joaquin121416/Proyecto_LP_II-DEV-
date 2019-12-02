@@ -36,22 +36,22 @@
 										</div>
 										<div class="row form-group">
 											<div class="col col-md-3">
-												<label for="text-input" class=" form-control-label">Nombre
+												<label for="text-input" class=" form-control-label" >Nombre
 													:</label>
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="nom"
-													placeholder="obligatorio" class="form-control">
+													placeholder="obligatorio" class="form-control" value="${nom }">
 											</div>
 										</div>
 										<div class="row form-group">
 											<div class="col col-md-3">
-												<label for="text-input" class=" form-control-label">Apellido
+												<label for="text-input" class=" form-control-label" >Apellido
 													:</label>
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="ape"
-													placeholder="obligatorio" class="form-control">
+													placeholder="obligatorio" class="form-control" value="${ape }">
 											</div>
 										</div>
 										<div class="row form-group">
@@ -70,7 +70,7 @@
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="text-input" name="doc"
-													placeholder="obligatorio" class="form-control">
+													placeholder="obligatorio" class="form-control" value="${docIde }">
 											</div>
 										</div>
 										<div class="row form-group">
@@ -94,12 +94,12 @@
 										</div>
 										<div class="row form-group">
 											<div class="col col-md-3">
-												<label for="email-input" class=" form-control-label">Usuario
+												<label for="email-input" class=" form-control-label" >Usuario
 													:</label>
 											</div>
 											<div class="col-12 col-md-9">
 												<input type="text" id="email-input" name="usu"
-													placeholder="obligatorio" class="form-control">
+													placeholder="obligatorio" class="form-control" value="${usu }">
 											</div>
 										</div>
 										<div class="row form-group">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="/WEB-INF/taglib.tld" prefix="tools" %>
 	<div id="right-panel" class="right-panel">
 	<jsp:include page="/Cabecera.jsp" />
 		<!-- Content -->
@@ -29,32 +30,27 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre :</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtNombre" placeholder="obligatorio" class="form-control" value="${nom }"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtNombre" placeholder="obligatorio" class="form-control" value="${nom }" required></div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label" >Descripcion :</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtDescripcion" placeholder="obligatorio" class="form-control" value="${des }"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtDescripcion" placeholder="obligatorio" class="form-control" value="${des }" required></div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label" >Precio :</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtPrecio" placeholder="obligatorio" class="form-control" value="${pre }"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtPrecio" placeholder="obligatorio" class="form-control" value="${pre }" required></div>
                                     </div>
                                    <div class="row form-group">
                                         <div class="col col-md-3"><label for="selectSm" class=" form-control-label">Categoria</label></div>
                                         <div class="col-12 col-md-9">
-                                            <select name="cboCategoria" id="selectSm" class="form-control-sm form-control" value="${cat }">
-                                                <option value="0">Please select</option>
-                                                <option value="1">Option #1</option>
-                                                <option value="2">Option #2</option>
-                                                <option value="3">Option #3</option>
-                                                <option value="4">Option #4</option>
-                                                <option value="5">Option #5</option>
+                                            <select name="cboCategoria" id="selectSm" class="form-control-sm form-control">
+                                                <tools:CBOCategorias/>
                                             </select>
                                         </div>
                                     </div>
                                         <div class="row form-group">
                                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Estado :</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtEstado" placeholder="obligatorio" class="form-control" value="${est }"></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="txtEstado" placeholder="obligatorio" class="form-control" value="${est }" required></div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3"><label for="file-input" class=" form-control-label">Elige Imagen :</label></div>

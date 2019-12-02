@@ -54,10 +54,11 @@ public class VentaServlet extends GenericoMB {
 
 	private void agregarProducto(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String cantidad = request.getParameter("can");
 		try {
 			int cantidadInt = Integer.parseInt(cantidad);
-			if ( cantidadInt == 0) {
+			if (cantidadInt == 0) {
 				String mensaje = "Introduzca una cantidad mayor de 0";
 				String url = "Ventas/ListaProductoVentaMenu.jsp";
 				request.setAttribute("mensaje", mensaje);
@@ -69,8 +70,7 @@ public class VentaServlet extends GenericoMB {
 				// entradas
 
 				// procesos
-				
-				
+
 				super.getSession().getAttribute("carro");
 				super.getSession().getAttribute("cantidadDeProducto");
 				super.getSession().getAttribute("cantidadDeProducto");
@@ -106,16 +106,21 @@ public class VentaServlet extends GenericoMB {
 	}
 
 	private void actualizarProducto2(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {}
+			throws ServletException, IOException {
+	}
 
 	private void eliminarProducto(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {}
+			throws ServletException, IOException {
+	}
 
 	private void actualizarProducto1(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {}
+			throws ServletException, IOException {
+	}
 
 	private void registrarProducto(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {}
+
+			throws ServletException, IOException {
+	}
 
 	private void filtrarProducto(HttpServletRequest request, HttpServletResponse response) {
 

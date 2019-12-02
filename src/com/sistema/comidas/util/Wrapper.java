@@ -44,7 +44,7 @@ public class Wrapper extends TableDecorator{
 	public String getEliminaProducto() {
 		ProductoBean  obj = (ProductoBean) getCurrentRowObject();
 		
-		String selecciona ="<a class=\"btn btn-primary btn-sm\" href=\"/LP_2_Sistema_Venta_3.0/crudProducto?opc=eli&codigo="+ obj.getPRO_ID()+"\" value=\"\" onclick=\"return confirm('¿Esta Seguro de Eliminar la categoria "+ obj.getPRO_NOM()+" ?')>\r\n" + 
+		String selecciona ="<a class=\"btn btn-primary btn-sm\" href=\"/LP_2_Sistema_Venta_3.0/crudProducto?opc=eli&codigo="+ obj.getPRO_ID()+"\" value=\"\"  onclick=\"return confirm('¿Esta Seguro de Eliminar el producto "+ obj.getPRO_NOM()+" ?')\">\r\n" + 
 				"											<i class=\"fa fa-dot-circle-o\"></i> Eliminar\r\n" + 
 				"										</a>";
 		return selecciona;

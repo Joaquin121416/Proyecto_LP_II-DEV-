@@ -17,6 +17,8 @@ import com.sistema.comidas.dao.factory.Factory;
 import com.sistema.comidas.presentacion.GenericoMB;
 import com.sistema.comidas.util.Net;
 
+import sun.invoke.empty.Empty;
+
 /**
  * Servlet implementation class UsuarioServlet
  */
@@ -61,6 +63,7 @@ public class UsuarioServlet extends GenericoMB {
 		String audIp = Net.getClientIPAddres(request);
 		// procesos
 		File file = new File(img);
+		
 		UsuarioBean user = new UsuarioBean();
 		user.setNombre(nombre);
 		user.setApellido(ape);
@@ -70,32 +73,96 @@ public class UsuarioServlet extends GenericoMB {
 		user.setTip_doc_id(Integer.parseInt(tipDoc));
 		user.setUsu_rol_id(Integer.parseInt(rol));
 		user.setUsuario_id(0);
-		if (doc.isEmpty() || doc.equals("")) {
-			url = "Usuario/AgregarUsuarioMenu.jsp";
-			request.setAttribute("mensaje", "Ingrese El numero de Documento");
-			request.getRequestDispatcher(url).forward(request, response);			
-		}else {
-		user.setUsu_doc(Integer.parseInt(doc));
+		user.setUsu_doc(doc);
 		user.setAud_ip(audIp);
-
-		// llamar al Factory para insertar
-		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
-		UsuarioDAO dao = bd.getUsuarioDAO();
-		int res = dao.agregarUsuario(user);
-		System.err.println(res);
-		if (res == 0) {
-			mensaje = "no se pudo insertar el registro";
-			url = "Usuario/AgregarUsuarioMenu.jsp";
-		} else {
-			mensaje = "categoria añadida";
-			url = "Usuario/AgregarUsuarioMenu.jsp";
-		}
-
-		// salidas
 		
-		request.setAttribute("mensaje", mensaje);
-		request.getRequestDispatcher(url).forward(request, response);
+		if (nombre.matches("\\D{3,20}")) {
+			if(ape.matches("\\D{3,40}")) {
+				if(doc.matches("\\d{6,15}")) {
+					if(usu.matches("[\\D\\d]{2,20}")) {
+						if(pwd.matches("[a-zA-Z\\d]{5,30}" )){
+							System.out.println(doc.matches("\\d{8,15}"));
+							
+							Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
+							UsuarioDAO dao = bd.getUsuarioDAO();
+							int res = dao.agregarUsuario(user);
+							System.err.println(res);
+							if (res == 0) {
+								mensaje = "no se pudo insertar el registro";
+								url = "Usuario/AgregarUsuarioMenu.jsp";
+							} else {
+								mensaje = "usuario añadido";
+								url = "Usuario/AgregarUsuarioMenu.jsp";
+							}
+				
+							request.setAttribute("mensaje", mensaje);
+							request.getRequestDispatcher(url).forward(request, response);	
+							
+						}else {
+							url = "Usuario/AgregarUsuarioMenu.jsp";
+							request.setAttribute("cod", user.getUsuario_id());
+							request.setAttribute("nom", user.getNombre());
+							request.setAttribute("ape", user.getApellido());
+							request.setAttribute("docIde", user.getUsu_doc());
+							request.setAttribute("usu", user.getUsuario());
+							request.setAttribute("val", user.getTip_doc_id());
+							request.setAttribute("rol", user.getUsu_rol_id());
+							request.setAttribute("mensaje", "Ingrese una contraseñña valida");
+							request.getRequestDispatcher(url).forward(request, response);
+						}
+					}else {
+						url = "Usuario/AgregarUsuarioMenu.jsp";
+						request.setAttribute("cod", user.getUsuario_id());
+						request.setAttribute("nom", user.getNombre());
+						request.setAttribute("ape", user.getApellido());
+						request.setAttribute("docIde", user.getUsu_doc());
+						request.setAttribute("usu", user.getUsuario());
+						request.setAttribute("val", user.getTip_doc_id());
+						request.setAttribute("rol", user.getUsu_rol_id());
+						request.setAttribute("mensaje", "Ingrese un usuario valido");
+						request.getRequestDispatcher(url).forward(request, response);
+					}
+				}else {
+					url = "Usuario/AgregarUsuarioMenu.jsp";
+					request.setAttribute("cod", user.getUsuario_id());
+					request.setAttribute("nom", user.getNombre());
+					request.setAttribute("ape", user.getApellido());
+					request.setAttribute("docIde", user.getUsu_doc());
+					request.setAttribute("usu", user.getUsuario());
+					request.setAttribute("val", user.getTip_doc_id());
+					request.setAttribute("rol", user.getUsu_rol_id());
+					request.setAttribute("mensaje", "Ingrese numero de documento valido");
+					request.getRequestDispatcher(url).forward(request, response);	
+				}
+				
+			}else {
+				url = "Usuario/AgregarUsuarioMenu.jsp";
+				request.setAttribute("cod", user.getUsuario_id());
+				request.setAttribute("nom", user.getNombre());
+				request.setAttribute("ape", user.getApellido());
+				request.setAttribute("docIde", user.getUsu_doc());
+				request.setAttribute("usu", user.getUsuario());
+				request.setAttribute("val", user.getTip_doc_id());
+				request.setAttribute("rol", user.getUsu_rol_id());
+				request.setAttribute("mensaje", "Ingrese un apellido correcto");
+				request.getRequestDispatcher(url).forward(request, response);	
+			}
+			
+		}else {
+		
+		url = "Usuario/AgregarUsuarioMenu.jsp";
+		request.setAttribute("cod", user.getUsuario_id());
+		request.setAttribute("nom", user.getNombre());
+		request.setAttribute("ape", user.getApellido());
+		request.setAttribute("docIde", user.getUsu_doc());
+		request.setAttribute("usu", user.getUsuario());
+		request.setAttribute("val", user.getTip_doc_id());
+		request.setAttribute("rol", user.getUsu_rol_id());
+		request.setAttribute("mensaje", "Ingrese un nombre correcto");
+		request.getRequestDispatcher(url).forward(request, response);	
 		}
+		
+		
 	}
 
 	protected void listarUsuario(HttpServletRequest request, HttpServletResponse response)
@@ -158,27 +225,104 @@ public class UsuarioServlet extends GenericoMB {
 	protected void actualizar2(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
-		CategoriaDAO dao = bd.getCategoriaDAO();
-		CategoriaProductoBean cat;
-		String nom = (String) request.getParameter("nom");
-		String des = (String) request.getParameter("des");
-		String url = "CategoriasProductos/ListaCategoriaMenu.jsp";
-		// salidas
-		String codi=(String) request.getParameter("cod");
-		int cod = Integer.parseInt(codi);
-		
-		
-		cat = new CategoriaProductoBean();
-		cat.setCat_pro_id(cod);
-		cat.setCat_pro_des(des);
-		cat.setCat_pro_nom(nom);
-		int res = dao.modificarCategoria(cat);
-		if (res != 0) {
-			request.getRequestDispatcher(url).forward(request, response);
-		}else {
-			
-		}
+		// variables
+				String mensaje = null;
+				String url;
+				// entradas
+				int cod = Integer.parseInt(request.getParameter("cod"));
+				String nombre = (request.getParameter("nom"));
+				String rol = request.getParameter("rol");
+				String usu = request.getParameter("usu");
+				String tipDoc = request.getParameter("tipDoc");
+				String ape = request.getParameter("txtape");
+				String doc = request.getParameter("doc");
+				String audIp = Net.getClientIPAddres(request);
+				// procesos
+				
+				UsuarioBean user = new UsuarioBean();
+				user.setUsuario_id(cod);
+				user.setNombre(nombre);
+				user.setApellido(ape);
+				user.setUsuario(usu);
+				user.setTip_doc_id(Integer.parseInt(tipDoc));
+				user.setUsu_rol_id(Integer.parseInt(rol));
+				user.setUsu_doc(doc);
+				user.setAud_ip(audIp);
+				
+				if (nombre.matches("\\D{3,20}")) {
+					System.out.println(ape +" : "+ape.matches("\\D{3,40}"));
+					if(ape.matches("\\D{3,40}")) {
+							if(usu.matches("[\\D\\d]{2,20}")) {
+								System.out.println(doc.matches("\\d{8,15}"));
+								if(doc.matches("\\d{6,15}")){
+									
+									Factory bd = Factory.getTipo(Factory.TIPO_MYSQL);
+									UsuarioDAO dao = bd.getUsuarioDAO();
+									int res = dao.modificarUsuario(user);
+									System.err.println(res);
+									if (res == 0) {
+										mensaje = "no se pudo actualizar el registro";
+										url = "Usuario/ListaUsuarioMenu.jsp";
+									} else {
+										mensaje = "usuario actualizado";
+										url = "Usuario/ListaUsuarioMenu.jsp";
+									}
+						
+									request.setAttribute("mensaje", mensaje);
+									request.getRequestDispatcher(url).forward(request, response);	
+									
+								}else{
+									url = "Usuario/ModificarUsuarioMenu.jsp";
+									request.setAttribute("cod", user.getUsuario_id());
+									request.setAttribute("nom", user.getNombre());
+									request.setAttribute("ape", user.getApellido());
+									request.setAttribute("docIde", user.getUsu_doc());
+									request.setAttribute("usu", user.getUsuario());
+									request.setAttribute("val", user.getTip_doc_id());
+									request.setAttribute("rol", user.getUsu_rol_id());
+									request.setAttribute("mensaje", "Ingrese un numero de documento valido");
+									request.getRequestDispatcher(url).forward(request, response);
+								}
+							}else {
+								url = "Usuario/ModificarUsuarioMenu.jsp";
+								request.setAttribute("cod", user.getUsuario_id());
+								request.setAttribute("nom", user.getNombre());
+								request.setAttribute("ape", user.getApellido());
+								request.setAttribute("docIde", user.getUsu_doc());
+								request.setAttribute("usu", user.getUsuario());
+								request.setAttribute("val", user.getTip_doc_id());
+								request.setAttribute("rol", user.getUsu_rol_id());
+								request.setAttribute("mensaje", "Ingrese un usuario valido");
+								request.getRequestDispatcher(url).forward(request, response);
+							}
+						
+						
+					}else {
+						url = "Usuario/ModificarUsuarioMenu.jsp";
+						request.setAttribute("cod", user.getUsuario_id());
+						request.setAttribute("nom", user.getNombre());
+						request.setAttribute("ape", user.getApellido());
+						request.setAttribute("docIde", user.getUsu_doc());
+						request.setAttribute("usu", user.getUsuario());
+						request.setAttribute("val", user.getTip_doc_id());
+						request.setAttribute("rol", user.getUsu_rol_id());
+						request.setAttribute("mensaje", "Ingrese un apellido correcto");
+						request.getRequestDispatcher(url).forward(request, response);	
+					}
+					
+				}else {
+				
+				url = "Usuario/ModificarUsuarioMenu.jsp";
+				request.setAttribute("cod", user.getUsuario_id());
+				request.setAttribute("nom", user.getNombre());
+				request.setAttribute("ape", user.getApellido());
+				request.setAttribute("docIde", user.getUsu_doc());
+				request.setAttribute("usu", user.getUsuario());
+				request.setAttribute("val", user.getTip_doc_id());
+				request.setAttribute("rol", user.getUsu_rol_id());
+				request.setAttribute("mensaje", "Ingrese un nombre correcto");
+				request.getRequestDispatcher(url).forward(request, response);	
+				}
 
 	}
 
